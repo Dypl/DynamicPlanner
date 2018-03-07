@@ -7,10 +7,10 @@ App Overview: A morning planner that functions as a users alarm clock. The app f
 -User is given a suggested breakfast recipe to start of their day.
 -User turns off alarm after going through all the pages of information to insure user interaction.
 #Screen 1
-<a href="https://imgur.com/MrclTU5"><img src="https://i.imgur.com/MrclTU5.png?.gif" title="source: imgur.com" /></a>
+<a href="https://imgur.com/MrclTU5"><img src="https://i.imgur.com/MrclTU5.png" title="source: imgur.com" /></a>
 #Screen 2
-<a href="https://imgur.com/bJIfUZS"><img src="https://i.imgur.com/bJIfUZS.png?.gif" title="source: imgur.com" /></a>
+<a href="https://imgur.com/bJIfUZS"><img src="https://i.imgur.com/bJIfUZS.png" title="source: imgur.com" /></a>
 #Screen 3
-<a href="https://imgur.com/LjegOm4"><img src="https://i.imgur.com/LjegOm4.png?.gif" title="source: imgur.com" /></a>
+<a href="https://imgur.com/LjegOm4"><img src="https://i.imgur.com/LjegOm4.png" title="source: imgur.com" /></a>
 #Screen 4
-<a href="https://imgur.com/cxg0noq"><img src="https://i.imgur.com/cxg0noq.png?.gif" title="source: imgur.com" /></a>
+<a href="https://imgur.com/cxg0noq"><img src="https://i.imgur.com/cxg0noq.png" title="source: imgur.com" /></a>
