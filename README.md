@@ -15,3 +15,8 @@ App Overview: A morning planner that functions as a users alarm clock. The app f
 <img src='https://i.imgur.com/LjegOm4.png' title='Screen 3' width='' alt='Suggestions' />
 #Screen 4
 <img src='https://i.imgur.com/cxg0noq.png' title='Screen 4' width='' alt='To Do:' />
+
+
+#Api
+OpenWeatherMapApi
+- api call: api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
