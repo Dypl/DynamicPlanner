@@ -6,4 +6,12 @@ App Overview: A morning planner that functions as a users alarm clock. The app f
 -User is provided local weather information.
 -User is given a suggested breakfast recipe to start of their day.
 -User turns off alarm after going through all the pages of information to insure user interaction.
+#Screen 1
+<img src='https://i.imgur.com/MrclTU5.png' title='Screen 1' width='' alt='Home' />
 
+#Screen 2
+<img src='https://i.imgur.com/bJIfUZS.png' title='Screen 2' width='' alt='Weather/Traffic' />
+#Screen 3
+<img src='https://i.imgur.com/LjegOm4.png' title='Screen 3' width='' alt='Suggestions' />
+#Screen 4
+<img src='https://i.imgur.com/cxg0noq.png' title='Screen 4' width='' alt='To Do:' />
