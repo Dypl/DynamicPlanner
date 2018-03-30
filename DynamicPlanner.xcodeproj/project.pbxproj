@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12E641B5F6B0C48D1034DE60 /* Pods_DynamicPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */; };
+		58CD4594206D64EC0066B951 /* WeatherAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */; };
+		58CD4596206DBCA00066B951 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD4595206DBCA00066B951 /* WeatherData.swift */; };
 		5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22F02920588DB0004A3A97 /* LoginViewController.swift */; };
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
@@ -45,6 +47,8 @@
 		1FFA9ACC334DD71AE64DFE48 /* Pods-DynamicPlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429436E7B316B1578B6021D7 /* Pods_DynamicPlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIManager.swift; sourceTree = "<group>"; };
+		58CD4595206DBCA00066B951 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		5A22F02920588DB0004A3A97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWeatherViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3720686597009BBCDC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58CD4592206D64BF0066B951 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		58F5C742206DC64F005FFC8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58CD4595206DBCA00066B951 /* WeatherData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9401C3CECBFF7183F92EF1F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +152,8 @@
 		98E311E720476FC0008CBA7D /* DynamicPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				58F5C742206DC64F005FFC8A /* Model */,
+				58CD4592206D64BF0066B951 /* APIManager */,
 				98E311E820476FC0008CBA7D /* AppDelegate.swift */,
 				98E311EA20476FC0008CBA7D /* ViewController.swift */,
 				98E311EC20476FC0008CBA7D /* Main.storyboard */,
@@ -477,6 +499,8 @@
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
 				98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */,
 				5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */,
+				58CD4594206D64EC0066B951 /* WeatherAPIManager.swift in Sources */,
+				58CD4596206DBCA00066B951 /* WeatherData.swift in Sources */,
 				5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
