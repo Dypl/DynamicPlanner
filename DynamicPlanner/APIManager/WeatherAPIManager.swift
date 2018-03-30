@@ -11,7 +11,7 @@ import Foundation
 class WeatherApiManager {
     
     static let baseUrl = "https://api.openweathermap.org/data/2.5/"
-    static let apiKey = "04b4b671b3866ba2bc02405aaea94250"
+    static let apiKey = valueForAPIKey(named: "OPEN_WEATHER_MAP_API_KEY")//"04b4b671b3866ba2bc02405aaea94250"
     var session: URLSession
     
     init() {
@@ -19,7 +19,7 @@ class WeatherApiManager {
     }
     
     func currentWeather(lat: Float, lon: Float, completion: @escaping (WeatherData?, Error?) -> ()) {
-        let url = URL(string: WeatherApiManager.baseUrl + "weather?appid=\(WeatherApiManager.apiKey)" + "&lat=\(lat)" + "&lon=\(lon)")!
+        let url = URL(string: WeatherApiManager.baseUrl + "weather?appid=\(WeatherApiManager.apiKey)" + "&lat=\(lat)" + "&lon=\(lon)" + "&units=imperial")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns

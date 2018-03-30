@@ -10,7 +10,7 @@ import Foundation
 
 class WeatherData {
     var description: String!
-    var temperature: String!
+    var temperature: Float!
     
     
     init(dictionary: [String: Any]) {
@@ -18,6 +18,6 @@ class WeatherData {
         let weatherDict = weatherArr[0] as! [String: Any]
         let mainDataDict = dictionary["main"] as! [String: Any]
         description = weatherDict["description"] as? String ?? "No description available"
-        temperature = mainDataDict["temp"] as? String ?? "N/A"
+        temperature = mainDataDict["temp"] as? Float ?? 0.0
     }
 }

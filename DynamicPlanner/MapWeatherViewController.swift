@@ -17,7 +17,8 @@ class MapWeatherViewController: UIViewController {
     
     func fetchWeatherData() {
         WeatherApiManager().currentWeather(lat: 36.0, lon: 139.0) { (weatherData: WeatherData?, error: Error?) in
-            //print(weatherData!.description)
+            print(weatherData!.description)
+            print(weatherData!.temperature)
         }
     }
 
