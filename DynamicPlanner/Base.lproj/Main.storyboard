@@ -78,11 +78,21 @@
                                     <action selector="alert:" destination="coQ-A4-9tx" eventType="touchUpInside" id="XQC-sG-yMc"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAF-iE-kyc">
+                                <rect key="frame" x="53" y="264" width="268" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1jM-pr-zHl"/>
                     </view>
                     <navigationItem key="navigationItem" id="k7l-Qm-f7c"/>
+                    <connections>
+                        <outlet property="datePickerText" destination="CAF-iE-kyc" id="MrZ-az-vyy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYX-vY-QMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
