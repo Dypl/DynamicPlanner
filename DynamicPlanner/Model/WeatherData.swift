@@ -9,9 +9,11 @@
 import Foundation
 
 class WeatherData {
+    static let iconBaseURL = "https://openweathermap.org/img/w/"
+    
     var description: String!
     var temperature: Float!
-    
+    var iconImgURL: URL!
     
     init(dictionary: [String: Any]) {
         let weatherArr = dictionary["weather"] as! [Any]
@@ -19,5 +21,10 @@ class WeatherData {
         let mainDataDict = dictionary["main"] as! [String: Any]
         description = weatherDict["description"] as? String ?? "No description available"
         temperature = mainDataDict["temp"] as? Float ?? 0.0
+        
+        let icon = weatherDict["icon"] as! String
+        let iconImgURLString = WeatherData.iconBaseURL + icon + ".png"
+        iconImgURL = URL(string: iconImgURLString)
+        
     }
 }
