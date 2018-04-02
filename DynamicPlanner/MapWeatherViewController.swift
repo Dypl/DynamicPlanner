@@ -19,6 +19,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     var lon: Double?
     var isFetchingWeather = false
 
+    @IBOutlet weak var refreshLabel: UILabel!
+    @IBOutlet weak var refreshImageView: UIImageView!
     @IBOutlet weak var weatherIconImg: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -28,6 +30,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         //self.locationManager.requestAlwaysAuthorization()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
+        refreshImageView.addGestureRecognizer(tapGestureRecognizer)
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -62,7 +66,6 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
-        print(locations)
         lat = location.coordinate.latitude
         lon = location.coordinate.longitude
         if !isFetchingWeather {
@@ -83,8 +86,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             self.temperatureLabel.text = tempStr
         }
         
-        if let iconImgURL = weatherData?.iconImgURL {
-            weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
+        if let iconImgURL = self.weatherData?.iconImgURL {
+            self.weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
                 if response.result.value != nil {
                     // set default img
                 } else {
@@ -109,6 +112,12 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func refreshTapped(sender: UITapGestureRecognizer) {
+        if !isFetchingWeather {
+            fetchWeatherData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
