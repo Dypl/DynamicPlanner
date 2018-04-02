@@ -62,9 +62,9 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
+        print(locations)
         lat = location.coordinate.latitude
-        lon = location.coordinate.latitude
-        
+        lon = location.coordinate.longitude
         if !isFetchingWeather {
             fetchWeatherData()
         }
