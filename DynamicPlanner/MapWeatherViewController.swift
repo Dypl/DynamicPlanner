@@ -57,9 +57,10 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             self.weatherData = weatherData
             print(weatherData!.description)
             print(weatherData!.temperature)
-            self.isFetchingWeather = false
+            
             DispatchQueue.main.async() {
                 self.setWeatherData()
+                self.isFetchingWeather = false
             }
         }
     }
@@ -74,6 +75,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setWeatherData() {
+        print("setting fields")
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
@@ -85,15 +87,15 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             let tempStr = String(temp) + " " + "\u{00B0}"
             self.temperatureLabel.text = tempStr
         }
-        
         if let iconImgURL = self.weatherData?.iconImgURL {
             self.weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
+                
+                print("set tingimage")
                 if response.result.value != nil {
                     // set default img
                 } else {
                     print(response.result.error?.localizedDescription ?? "error")
                 }
-                
                 DispatchQueue.main.async {
                     if self.activityIndicator.isAnimating {
                         self.activityIndicator.stopAnimating()
