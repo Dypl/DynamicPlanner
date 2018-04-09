@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		12E641B5F6B0C48D1034DE60 /* Pods_DynamicPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */; };
+		5A1AC9832072E20B009176D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1AC9822072E20B009176D8 /* Images.xcassets */; };
+		5A1AC9852072E9CA009176D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9842072E9CA009176D8 /* AVFoundation.framework */; };
+		5A1AC9872072E9D7009176D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9862072E9D7009176D8 /* CoreData.framework */; };
+		5A1AC9892072E9E1009176D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9882072E9E1009176D8 /* CoreLocation.framework */; };
+		5A1AC98B2072E9EE009176D8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC98A2072E9EE009176D8 /* CoreText.framework */; };
+		5A1AC98D2072E9FA009176D8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC98C2072E9FA009176D8 /* GLKit.framework */; };
+		5A1AC98F2072EA06009176D8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC98E2072EA06009176D8 /* ImageIO.framework */; };
+		5A1AC9912072EAE9009176D8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9902072EAE9009176D8 /* libc++.tbd */; };
+		5A1AC9932072EAFA009176D8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9922072EAFA009176D8 /* libicucore.tbd */; };
+		5A1AC9952072EB0D009176D8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1AC9942072EB0D009176D8 /* libz.tbd */; };
 		5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22F02920588DB0004A3A97 /* LoginViewController.swift */; };
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
@@ -45,6 +55,16 @@
 		1FFA9ACC334DD71AE64DFE48 /* Pods-DynamicPlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429436E7B316B1578B6021D7 /* Pods_DynamicPlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1AC9822072E20B009176D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../../Downloads/GMapsDemo/GMapsDemo/Images.xcassets; sourceTree = "<group>"; };
+		5A1AC9842072E9CA009176D8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A1AC9862072E9D7009176D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A1AC9882072E9E1009176D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5A1AC98A2072E9EE009176D8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5A1AC98C2072E9FA009176D8 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		5A1AC98E2072EA06009176D8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5A1AC9902072EAE9009176D8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5A1AC9922072EAFA009176D8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		5A1AC9942072EB0D009176D8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5A22F02920588DB0004A3A97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWeatherViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3720686597009BBCDC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +94,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1AC9952072EB0D009176D8 /* libz.tbd in Frameworks */,
+				5A1AC9932072EAFA009176D8 /* libicucore.tbd in Frameworks */,
+				5A1AC9912072EAE9009176D8 /* libc++.tbd in Frameworks */,
+				5A1AC98F2072EA06009176D8 /* ImageIO.framework in Frameworks */,
+				5A1AC98D2072E9FA009176D8 /* GLKit.framework in Frameworks */,
+				5A1AC98B2072E9EE009176D8 /* CoreText.framework in Frameworks */,
+				5A1AC9892072E9E1009176D8 /* CoreLocation.framework in Frameworks */,
+				5A1AC9872072E9D7009176D8 /* CoreData.framework in Frameworks */,
+				5A1AC9852072E9CA009176D8 /* AVFoundation.framework in Frameworks */,
 				CCDC638828171D7E35BF8F5D /* Pods_DynamicPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +129,15 @@
 		9401C3CECBFF7183F92EF1F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A1AC9942072EB0D009176D8 /* libz.tbd */,
+				5A1AC9922072EAFA009176D8 /* libicucore.tbd */,
+				5A1AC9902072EAE9009176D8 /* libc++.tbd */,
+				5A1AC98E2072EA06009176D8 /* ImageIO.framework */,
+				5A1AC98C2072E9FA009176D8 /* GLKit.framework */,
+				5A1AC98A2072E9EE009176D8 /* CoreText.framework */,
+				5A1AC9882072E9E1009176D8 /* CoreLocation.framework */,
+				5A1AC9862072E9D7009176D8 /* CoreData.framework */,
+				5A1AC9842072E9CA009176D8 /* AVFoundation.framework */,
 				E9D41560B852EA9A8E54C398 /* Pods_DynamicPlanner.framework */,
 				2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */,
 				429436E7B316B1578B6021D7 /* Pods_DynamicPlannerUITests.framework */,
@@ -136,6 +174,7 @@
 				98E311EA20476FC0008CBA7D /* ViewController.swift */,
 				98E311EC20476FC0008CBA7D /* Main.storyboard */,
 				98E311EF20476FC0008CBA7D /* Assets.xcassets */,
+				5A1AC9822072E20B009176D8 /* Images.xcassets */,
 				98E311F120476FC0008CBA7D /* LaunchScreen.storyboard */,
 				98E311F420476FC0008CBA7D /* Info.plist */,
 				5A22F02920588DB0004A3A97 /* LoginViewController.swift */,
@@ -294,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E311F320476FC0008CBA7D /* LaunchScreen.storyboard in Resources */,
+				5A1AC9832072E20B009176D8 /* Images.xcassets in Resources */,
 				98E311F020476FC0008CBA7D /* Assets.xcassets in Resources */,
 				98E311EE20476FC0008CBA7D /* Main.storyboard in Resources */,
 			);
@@ -423,9 +463,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DynamicPlanner/Pods-DynamicPlanner-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

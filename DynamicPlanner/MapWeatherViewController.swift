@@ -10,6 +10,10 @@ import UIKit
 
 class MapWeatherViewController: UIViewController {
 
+    @IBOutlet weak var bbFindAddress: UIBarButtonItem!
+    @IBOutlet weak var viewMap: UIView!
+    @IBOutlet weak var lblInfo: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +35,13 @@ class MapWeatherViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+// Tool bar action items
+    @IBAction func findAddress(_ sender: Any) {
+    }
+    @IBAction func changeMapType(_ sender: Any) {
+    }
+    @IBAction func createRoute(_ sender: Any) {
+    }
+    @IBAction func changeTravelMode(_ sender: Any) {
+    }
 }
