@@ -19,6 +19,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     var lon: Double?
     var isFetchingWeather = false
 
+    @IBOutlet weak var HiLoTempLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var refreshLabel: UILabel!
     @IBOutlet weak var refreshImageView: UIImageView!
     @IBOutlet weak var weatherIconImg: UIImageView!
@@ -76,6 +78,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     func setWeatherData() {
         print("setting fields")
+        self.cityLabel.text = weatherData?.city
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
@@ -84,9 +87,13 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         self.weatherDescriptionLabel.text = weatherData?.description
         if let temp = weatherData!.temperature {
-            let tempStr = String(temp) + " " + "\u{00B0}"
+            let tempStr = String(Int(temp)) + " " + "\u{00B0}"
             self.temperatureLabel.text = tempStr
         }
+        let tempMax = weatherData?.tempMax
+        let tempMin = weatherData?.tempMin
+        let hiLoTempStr = String(Int(tempMax!)) + " \u{00B0} / " + String(Int(tempMin!)) + " \u{00B0}"
+        self.HiLoTempLabel.text = hiLoTempStr
         if let iconImgURL = self.weatherData?.iconImgURL {
             self.weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
                 
