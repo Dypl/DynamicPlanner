@@ -32,8 +32,10 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         //self.locationManager.requestAlwaysAuthorization()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
-        refreshImageView.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizerForImage = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
+        let tapGestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
+        refreshImageView.addGestureRecognizer(tapGestureRecognizerForImage)
+        refreshLabel.addGestureRecognizer(tapGestureRecognizerForLabel)
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -42,8 +44,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         } else {
             // location not accessible
-            print("Location not enabled")
-            self.displayAlert(errorMsg: "Location not enabled")
+            self.displayAlert(title: "Location Error", errorMsg: "Location not enabled")
         }
     }
     
@@ -56,13 +57,17 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             self.activityIndicator.startAnimating()
         }
         WeatherApiManager().currentWeather(lat: lat!, lon: lon!) { (weatherData: WeatherData?, error: Error?) in
-            self.weatherData = weatherData
-            print(weatherData!.description)
-            print(weatherData!.temperature)
-            
-            DispatchQueue.main.async() {
-                self.setWeatherData()
-                self.isFetchingWeather = false
+            if let error = error {
+                self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
+            } else {
+                self.weatherData = weatherData
+                print(weatherData!.description)
+                print(weatherData!.temperature)
+                
+                DispatchQueue.main.async() {
+                    self.setWeatherData()
+                    self.isFetchingWeather = false
+                }
             }
         }
     }
@@ -77,44 +82,44 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setWeatherData() {
-        print("setting fields")
-        self.cityLabel.text = weatherData?.city
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
-        let result = dateFormatter.string(from: date)
-        self.curDate.text = result
-        
-        self.weatherDescriptionLabel.text = weatherData?.description
-        if let temp = weatherData!.temperature {
-            let tempStr = String(Int(temp)) + " " + "\u{00B0}"
-            self.temperatureLabel.text = tempStr
-        }
-        let tempMax = weatherData?.tempMax
-        let tempMin = weatherData?.tempMin
-        let hiLoTempStr = String(Int(tempMax!)) + " \u{00B0} / " + String(Int(tempMin!)) + " \u{00B0}"
-        self.HiLoTempLabel.text = hiLoTempStr
-        if let iconImgURL = self.weatherData?.iconImgURL {
-            self.weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
-                
-                print("set tingimage")
-                if response.result.value != nil {
-                    // set default img
-                } else {
-                    print(response.result.error?.localizedDescription ?? "error")
-                }
-                DispatchQueue.main.async {
-                    if self.activityIndicator.isAnimating {
-                        self.activityIndicator.stopAnimating()
+        if let weatherData = self.weatherData {
+            self.cityLabel.text = weatherData.city
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy"
+            let result = dateFormatter.string(from: date)
+            self.curDate.text = result
+            
+            self.weatherDescriptionLabel.text = weatherData.description
+            if let temp = weatherData.temperature {
+                let tempStr = String(Int(temp)) + " " + "\u{00B0}"
+                self.temperatureLabel.text = tempStr
+            }
+            let tempMax = weatherData.tempMax
+            let tempMin = weatherData.tempMin
+            let hiLoTempStr = String(Int(tempMax!)) + " \u{00B0} / " + String(Int(tempMin!)) + " \u{00B0}"
+            self.HiLoTempLabel.text = hiLoTempStr
+            if let iconImgURL = weatherData.iconImgURL {
+                self.weatherIconImg.af_setImage(withURL: iconImgURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
+                    
+                    if response.result.value != nil {
+                        // set default img
+                    } else {
+                        print(response.result.error?.localizedDescription ?? "error")
                     }
-                }
-            })
+                    DispatchQueue.main.async {
+                        if self.activityIndicator.isAnimating {
+                            self.activityIndicator.stopAnimating()
+                        }
+                    }
+                })
+            }
         }
     }
     
-    func displayAlert(errorMsg: String) {
+    func displayAlert(title: String, errorMsg: String) {
         // create the alert
-        let alert = UIAlertController(title: "Login Failed", message: errorMsg, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: errorMsg, preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -125,6 +130,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func refreshTapped(sender: UITapGestureRecognizer) {
         if !isFetchingWeather {
+            print("tap")
             fetchWeatherData()
         }
     }
