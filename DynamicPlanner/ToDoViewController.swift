@@ -15,11 +15,17 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    
+    let alert = UIAlertController(title: "New To-Do Item", message: "Enter the item title and description", preferredStyle: .alert
+    )
+    var actionToEnable: UIAlertAction?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.isHidden = true
+        setUpAlert()
         fetchToDoItems()
     }
 
@@ -39,43 +45,60 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let title = toDoItem.title {
                 cell.titleLabel.text = title
             }
-            
-            let accessory: UITableViewCellAccessoryType = toDoItem.isDone ? .checkmark : .none
-            cell.accessoryType = accessory
         }
         
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    
+    func setUpAlert() {
+        self.alert.addTextField(configurationHandler: { (textField: UITextField!) in
+            textField.placeholder = "Enter title"
+            textField.addTarget(self, action: #selector(self.textHasChanged(_:)), for: .editingChanged)
+        })
+        self.alert.addTextField(configurationHandler: { (textField: UITextField!) in
+            textField.placeholder = "Enter description"
+            textField.addTarget(self, action: #selector(self.textHasChanged(_:)), for: .editingChanged)
+        })
+        self.alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        if indexPath.row < toDoItems.count {
-            let toDoItem = toDoItems[indexPath.row]
-                toDoItem.isDone = !toDoItem.isDone
-        }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let createAction = UIAlertAction(title: "Create ", style: .default, handler: { (_) in
+                let title = self.alert.textFields?[0].text
+                let description = self.alert.textFields?[1].text
+            self.addToDoItem(title: title!, description: description!)
+                self.clearTextFields()
+                self.actionToEnable?.isEnabled = false
+        })
+        
+        self.alert.addAction(createAction)
+        
+        self.actionToEnable = createAction
+        createAction.isEnabled = false
     }
     
     @IBAction func didTapAddNewItem(_ sender: Any) {
-        let alert = UIAlertController(title: "New To-Do Item", message: "Enter the item title", preferredStyle: .alert
-        )
-        
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-            alert.addAction(UIAlertAction(title: "Create ", style: .default, handler: { (_) in
-                if let title = alert.textFields?[0].text {
-                    self.addToDoItem(title: title)
-                }
-            }))
-        
         self.present(alert, animated: true, completion: nil)
     }
     
-    func addToDoItem(title: String) {
+    func clearTextFields() {
+        for textField in self.alert.textFields! {
+            textField.text = ""
+        }
+    }
+    
+    @objc func textHasChanged(_ sender: UITextField) {
+        var count = 0
+        for textField in self.alert.textFields! {
+            if !(textField.text?.isEmpty)! {
+                count = count + 1
+            }
+        }
+        
+        self.actionToEnable?.isEnabled = count == self.alert.textFields?.count
+    }
+    
+    func addToDoItem(title: String, description: String) {
         let index = toDoItems.count
-        let toDoItem = ToDoItem.createAndSaveToDoItem(title: title, isDone: false, userID: PFUser.current()!.objectId!) { (success: Bool, error: Error?) in
+        let toDoItem = ToDoItem.createAndSaveToDoItem(title: title, itemDescription: description, isDone: false, userID: PFUser.current()!.objectId!) { (success: Bool, error: Error?) in
             if let error = error {
             print(error.localizedDescription)
             } else {
@@ -118,6 +141,15 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let toDoItem = self.toDoItems[indexPath.row]
+            let detailsViewController = segue.destination as! ToDoItemDetailsViewController
+            detailsViewController.toDoItem = toDoItem
         }
     }
 }
