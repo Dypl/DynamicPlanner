@@ -136,6 +136,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
 //                        }
 //                    }
 //                }
+                //THIS WILL BE USED WITH DIRECTIONS API
                 if let array = json["rows"] as? NSArray {
                     print("Yes we entered here")
                     if let rows = array[0] as? NSDictionary{
@@ -148,6 +149,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
                                         }
                                     }
                                 }
+                 //THIS WILL BE USED WITH MATRIX API
                                 if let duration = elements["distance"] as? NSDictionary {
                                     if let text = duration["text"] as? String{
                                         DispatchQueue.main.async {
