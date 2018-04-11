@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8")
+        GMSPlacesClient.provideAPIKey("AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8")
+        // AIzaSyD4c5CuIu5hvkouSrK0IWyus8aHFQWw_bY
+
         
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.

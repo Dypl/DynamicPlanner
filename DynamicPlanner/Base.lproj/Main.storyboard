@@ -181,6 +181,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g71-xN-CF8">
+                                <rect key="frame" x="147" y="399" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkV-D5-9x7">
+                                <rect key="frame" x="147" y="439" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -211,6 +225,8 @@
                         <outlet property="activityIndicator" destination="oDG-Gw-Rnl" id="W3F-tE-0bN"/>
                         <outlet property="cityLabel" destination="NrZ-EN-MIa" id="LwJ-3e-OVJ"/>
                         <outlet property="curDate" destination="F4u-U0-7fS" id="5SR-TQ-xy6"/>
+                        <outlet property="point_a" destination="g71-xN-CF8" id="BeR-Ax-mBk"/>
+                        <outlet property="point_b" destination="QkV-D5-9x7" id="Qtt-tm-Do4"/>
                         <outlet property="refreshImageView" destination="nPZ-lX-j1l" id="jae-5C-6Aj"/>
                         <outlet property="refreshLabel" destination="vuj-tk-tCE" id="aeL-HU-9Jf"/>
                         <outlet property="temperatureLabel" destination="By3-gZ-IKa" id="8uT-pQ-2WP"/>
