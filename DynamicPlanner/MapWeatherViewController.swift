@@ -130,9 +130,16 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func refreshTapped(sender: UITapGestureRecognizer) {
         if !isFetchingWeather {
-            print("tap")
+            resetFieldsToDefaults()
             fetchWeatherData()
         }
+    }
+    
+    func resetFieldsToDefaults() {
+        self.weatherDescriptionLabel.text = "-----"
+        self.temperatureLabel.text = "--"
+        self.HiLoTempLabel.text = "-----"
+        self.cityLabel.text = "-----"
     }
 
     override func didReceiveMemoryWarning() {
