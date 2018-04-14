@@ -15,10 +15,7 @@ import GoogleMaps
 import GooglePlaces
 import Foundation
 
-
-class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
-    
-    let locationManager = CLLocationManager()
+class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UITextFieldDelegate, SearchResultDelegate {
     
     var weatherData: WeatherData?
     var lat: Double?
@@ -39,25 +36,24 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var point_a: UILabel!
     @IBOutlet weak var point_b: UILabel!
     
+    @IBOutlet weak var endTextField: UITextField!
+    @IBOutlet weak var startTextField: UITextField!
+    //    @IBOutlet weak var tableView: UITableView!
+    var currentLocation: CLLocation!
+    let LocationManager = LocationSingleton.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.locationManager.requestAlwaysAuthorization()
         let tapGestureRecognizerForImage = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
         let tapGestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
         refreshImageView.addGestureRecognizer(tapGestureRecognizerForImage)
         refreshLabel.addGestureRecognizer(tapGestureRecognizerForLabel)
-        self.locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        } else {
-            // location not accessible
-            self.displayAlert(title: "Location Error", errorMsg: "Location not enabled")
-        }
+        
+        startTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
+        endTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
+        LocationManager.delegate = self
+        LocationManager.startUpdatingUserLocation()
         
 //         Create a GMSCameraPosition that tells the map to display the
 //         coordinate 2.909960,101.654674 at zoom level 16.
@@ -184,6 +180,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func fetchWeatherData() {
+        print("in fetchweatherData")
         if lat == nil || lon == nil {
             return
         }
@@ -207,13 +204,14 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
+    func locationDidUpdateToLocation(location: CLLocation) {
+        currentLocation = location
         lat = location.coordinate.latitude
         lon = location.coordinate.longitude
-        if !isFetchingWeather {
-            fetchWeatherData()
-        }
+        print("Lat: \(self.currentLocation.coordinate.latitude)")
+        print("Lon: \(self.currentLocation.coordinate.longitude)")
+        fetchWeatherData()
+        LocationManager.stopUpdatingUserLocation()
     }
     
     func setWeatherData() {
@@ -266,7 +264,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
     @objc func refreshTapped(sender: UITapGestureRecognizer) {
         if !isFetchingWeather {
             resetFieldsToDefaults()
-            fetchWeatherData()
+            LocationManager.startUpdatingUserLocation()
+            //fetchWeatherData()
         }
     }
     
@@ -286,4 +285,32 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+    var isStartTextFieldTapped = false
+    
+    @objc func textFieldTapped(_ sender: UITextField) {
+        
+        isStartTextFieldTapped = sender == startTextField
+        
+        print("in here")
+        let searchPopUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchPopUpVC") as! SearchPopUpViewController
+       searchPopUpVC.delegate = self
+        self.addChildViewController(searchPopUpVC)
+        searchPopUpVC.view.frame = self.view.frame
+        self.view.addSubview(searchPopUpVC.view)
+        searchPopUpVC.didMove(toParentViewController: self)
+    }
+    
+    func searchResult(destination: String?) {
+        if isStartTextFieldTapped {
+            startTextField.text = destination
+        } else {
+            endTextField.text = destination
+        }
+    }
 }
+
