@@ -38,7 +38,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var point_a: UILabel!
     @IBOutlet weak var point_b: UILabel!
-    
+    @IBOutlet weak var origin: UILabel!
+    @IBOutlet weak var destination: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,33 +60,11 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
             self.displayAlert(title: "Location Error", errorMsg: "Location not enabled")
         }
         
-//         Create a GMSCameraPosition that tells the map to display the
-//         coordinate 2.909960,101.654674 at zoom level 16.
-//        let camera = GMSCameraPosition.camera(withLatitude: 2.909960, longitude:101.654674, zoom: 16.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        mapView.isMyLocationEnabled = true
-//        view = mapView
-//
-//        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: 2.909960, longitude: 101.654674)
-//        marker.title = "Cyberjaya"
-//        marker.snippet = "Malaysia"
-//        marker.map = mapView
-//
-//        let marker2 = GMSMarker()
-//        marker2.position = CLLocationCoordinate2D(latitude: 2.915142, longitude: 101.657498)
-//        marker2.title = "MSC"
-//        marker2.snippet = "Malaysia"
-//        marker2.map = mapView
-//        // TO DO: Remove statically created co-ordinates
-        // THIS WILL BE USED FOR THE FOLLOWING USE CASE:
-        //USER TOUCHES ON THE TRAFFIC DESCRIPTION THEN HE/SHE IS RE-DIRCTED TO ANOTHER VIEW CONTROLLER DISPLAYING A GMSMAPVIEW.
 
         let a_coordinate_string = "2.915142,101.657498"
         let b_coordinate_string = "2.909960,101.654674"
 
-                let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=\(a_coordinate_string)&destinations=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
+                let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=\(a_coordinate_string)&destinations=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
         
 
 //        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(a_coordinate_string)&destination=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
@@ -114,6 +93,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
                     throw JSONError.ConversionFailed
                 }
                 //print(json)
+                //This will be used with the matrixapi.
+                
 //                if let array = json["routes"] as? NSArray {
 //                    print("hi")
 //                    if let routes = array[0] as? NSDictionary{
@@ -136,7 +117,8 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
 //                        }
 //                    }
 //                }
-                //THIS WILL BE USED WITH DIRECTIONS API
+              
+                
                 if let array = json["rows"] as? NSArray {
                     print("Yes we entered here")
                     if let rows = array[0] as? NSDictionary{
@@ -149,7 +131,7 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
                                         }
                                     }
                                 }
-                 //THIS WILL BE USED WITH MATRIX API
+              
                                 if let duration = elements["distance"] as? NSDictionary {
                                     if let text = duration["text"] as? String{
                                         DispatchQueue.main.async {
@@ -286,4 +268,5 @@ class MapWeatherViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
