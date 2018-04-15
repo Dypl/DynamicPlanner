@@ -92,7 +92,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
                     throw JSONError.ConversionFailed
                 }
-                //print(json)
+               
                 //This will be used with the matrixapi.
                 
 //                if let array = json["routes"] as? NSArray {
@@ -118,7 +118,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
 //                    }
 //                }
               
-                
+                print(json)
                 if let array = json["rows"] as? NSArray {
                     print("Yes we entered here")
                     if let rows = array[0] as? NSDictionary{
@@ -196,6 +196,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         lon = location.coordinate.longitude
         print("Lat: \(self.currentLocation.coordinate.latitude)")
         print("Lon: \(self.currentLocation.coordinate.longitude)")
+       
         fetchWeatherData()
         LocationManager.stopUpdatingUserLocation()
     }
@@ -261,10 +262,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         self.HiLoTempLabel.text = "-----"
         self.cityLabel.text = "-----"
     }
-    enum JSONError: String, Error {
-        case NoData = "ERROR: no data"
-        case ConversionFailed = "ERROR: conversion from JSON failed"
-    }
+   
     // Created : json error, used in try & catch.
 
     override func didReceiveMemoryWarning() {
@@ -298,6 +296,10 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         } else {
             endTextField.text = destination
         }
+    }
+    enum JSONError: String, Error {
+        case NoData = "ERROR: no data"
+        case ConversionFailed = "ERROR: conversion from JSON failed"
     }
 
 }

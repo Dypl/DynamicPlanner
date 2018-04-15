@@ -72,6 +72,7 @@ class SearchPopUpViewController: UIViewController {
     @IBAction func doneBtnTapped(_ sender: Any) {
         result = searchBar.text
         delegate?.searchResult(destination: self.result)
+        print("HERE")
         self.removeAnimate()
     }
 }
@@ -134,6 +135,10 @@ extension SearchPopUpViewController: UITableViewDelegate {
         
         search.start { (response, error) in
             let coordinate = response?.mapItems[0].placemark.coordinate
+            print(coordinate?.latitude ?? 0.0)
+            print(coordinate?.longitude ?? 0.0)
+            // function to call to query string.
+            
             print(String(describing: coordinate))
         }
         

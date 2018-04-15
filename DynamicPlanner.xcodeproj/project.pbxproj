@@ -20,6 +20,8 @@
 		5A6C2317207F20F600DE9855 /* GoogleAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C2316207F20F600DE9855 /* GoogleAPIManager.swift */; };
 		5A6C23192080248200DE9855 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C23182080248200DE9855 /* TrafficViewController.swift */; };
 		5A6C231B2082CA6900DE9855 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6C231A2082CA6900DE9855 /* ApiKeys.plist */; };
+		5A6C231D2083AF6900DE9855 /* GoogleDistanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */; };
+		5A6C231F2083B4CA00DE9855 /* GoogleMatrixData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */; };
 		98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311E820476FC0008CBA7D /* AppDelegate.swift */; };
 		98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311EA20476FC0008CBA7D /* ViewController.swift */; };
 		98E311EE20476FC0008CBA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E311EC20476FC0008CBA7D /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		5A6C2316207F20F600DE9855 /* GoogleAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPIManager.swift; sourceTree = "<group>"; };
 		5A6C23182080248200DE9855 /* TrafficViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
 		5A6C231A2082CA6900DE9855 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
+		5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDistanceData.swift; sourceTree = "<group>"; };
+		5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMatrixData.swift; sourceTree = "<group>"; };
 		6B42BD1671072AAFA689C351 /* Pods-DynamicPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		939EC6AB7ECE3E7DCC1FE61C /* Pods-DynamicPlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerUITests/Pods-DynamicPlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		98E311E520476FC0008CBA7D /* DynamicPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				58CD4595206DBCA00066B951 /* WeatherData.swift */,
+				5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */,
+				5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,8 +532,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6C231F2083B4CA00DE9855 /* GoogleMatrixData.swift in Sources */,
 				5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */,
 				98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */,
+				5A6C231D2083AF6900DE9855 /* GoogleDistanceData.swift in Sources */,
 				5A6C23192080248200DE9855 /* TrafficViewController.swift in Sources */,
 				58F5C746206DD45D005FFC8A /* ApiKeys.swift in Sources */,
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
