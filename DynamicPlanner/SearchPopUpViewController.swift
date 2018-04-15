@@ -19,13 +19,25 @@ class SearchPopUpViewController: UIViewController {
     var searchResults = [MKLocalSearchCompletion]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     weak var delegate: SearchResultDelegate?
+    
+    var result: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blue.withAlphaComponent(0.8)
         searchCompleter.delegate = self
-        //self.showAnimate()
+        
+        self.view.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.insertSubview(blurEffectView, at: 0)
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        NSLayoutConstraint.activate([blurEffectView.heightAnchor.constraint(equalTo: self.view.heightAnchor), blurEffectView.widthAnchor.constraint(equalTo: view.widthAnchor)])
+        
+        self.showAnimate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +69,11 @@ class SearchPopUpViewController: UIViewController {
         });
     }
 
+    @IBAction func doneBtnTapped(_ sender: Any) {
+        result = searchBar.text
+        delegate?.searchResult(destination: self.result)
+        self.removeAnimate()
+    }
 }
 
 extension SearchPopUpViewController: UISearchBarDelegate {
@@ -101,6 +118,7 @@ extension SearchPopUpViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
         return cell
@@ -119,8 +137,8 @@ extension SearchPopUpViewController: UITableViewDelegate {
             print(String(describing: coordinate))
         }
         
-        let dest = completion.title + ", " + completion.subtitle
-        delegate?.searchResult(destination: dest)
-         self.view.removeFromSuperview()//self.removeAnimate()
+        self.result = completion.title + ", " + completion.subtitle
+        self.searchBar.text = self.result
+        searchCompleter.queryFragment = self.result!
     }
 }

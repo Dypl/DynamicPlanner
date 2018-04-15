@@ -312,42 +312,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Enter address" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-CF-no4">
-                                <rect key="frame" x="0.0" y="8" width="375" height="56"/>
+                            <searchBar contentMode="redraw" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="" placeholder="Enter address" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-CF-no4">
+                                <rect key="frame" x="16" y="28" width="296" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Br2-n4-ODF" id="oDM-I1-ouF"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-v2-swA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="611"/>
+                                <rect key="frame" x="8" y="92" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Br2-n4-ODF" id="XD2-tx-Uw0"/>
                                     <outlet property="delegate" destination="Br2-n4-ODF" id="KAc-Ah-qaJ"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-a7-zlZ">
+                                <rect key="frame" x="320" y="38" width="47" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBtnTapped:" destination="Br2-n4-ODF" eventType="touchUpInside" id="tvp-8H-Xm2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9e7-v2-swA" firstAttribute="leading" secondItem="4Kn-0f-IFU" secondAttribute="leading" id="4if-E5-Sdp"/>
-                            <constraint firstItem="NRz-CF-no4" firstAttribute="trailing" secondItem="4Kn-0f-IFU" secondAttribute="trailing" id="Axg-jU-DB2"/>
-                            <constraint firstItem="NRz-CF-no4" firstAttribute="leading" secondItem="4Kn-0f-IFU" secondAttribute="leading" id="Ii0-wS-xtK"/>
-                            <constraint firstItem="9e7-v2-swA" firstAttribute="bottom" secondItem="4Kn-0f-IFU" secondAttribute="bottom" constant="8" id="O3L-Ap-bID"/>
-                            <constraint firstItem="9e7-v2-swA" firstAttribute="trailing" secondItem="4Kn-0f-IFU" secondAttribute="trailing" id="PqQ-rd-nz9"/>
-                            <constraint firstItem="9e7-v2-swA" firstAttribute="top" secondItem="NRz-CF-no4" secondAttribute="bottom" id="YnB-CQ-7pv"/>
-                            <constraint firstItem="9e7-v2-swA" firstAttribute="top" secondItem="NRz-CF-no4" secondAttribute="bottom" id="bg0-Dk-sMj"/>
-                            <constraint firstItem="NRz-CF-no4" firstAttribute="top" secondItem="UbI-KM-APc" secondAttribute="top" constant="8" id="dO2-fJ-0Ra"/>
+                            <constraint firstItem="NRz-CF-no4" firstAttribute="top" secondItem="4Kn-0f-IFU" secondAttribute="top" constant="8" id="7oB-20-kKL"/>
+                            <constraint firstItem="fpy-a7-zlZ" firstAttribute="centerY" secondItem="NRz-CF-no4" secondAttribute="centerY" id="EYZ-42-NMq"/>
+                            <constraint firstItem="4Kn-0f-IFU" firstAttribute="bottom" secondItem="9e7-v2-swA" secondAttribute="bottom" constant="8" id="EeE-WR-aUJ"/>
+                            <constraint firstItem="9e7-v2-swA" firstAttribute="trailing" secondItem="4Kn-0f-IFU" secondAttribute="trailing" constant="8" id="IBQ-ql-zPi"/>
+                            <constraint firstItem="4Kn-0f-IFU" firstAttribute="trailing" secondItem="fpy-a7-zlZ" secondAttribute="trailing" constant="8" id="VdF-u8-Jz0"/>
+                            <constraint firstItem="fpy-a7-zlZ" firstAttribute="leading" secondItem="NRz-CF-no4" secondAttribute="trailing" constant="8" id="Vrd-ur-pCn"/>
+                            <constraint firstItem="9e7-v2-swA" firstAttribute="leading" secondItem="4Kn-0f-IFU" secondAttribute="leading" constant="8" id="a6U-DD-7gA"/>
+                            <constraint firstItem="NRz-CF-no4" firstAttribute="leading" secondItem="4Kn-0f-IFU" secondAttribute="leading" constant="16" id="fdx-QS-q1i"/>
+                            <constraint firstItem="9e7-v2-swA" firstAttribute="top" secondItem="NRz-CF-no4" secondAttribute="bottom" constant="8" id="qwj-J3-dk6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Kn-0f-IFU"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="NRz-CF-no4" id="HEr-KR-p0K"/>
                         <outlet property="tableView" destination="9e7-v2-swA" id="S1g-2C-zUy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYr-mv-He9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264.80000000000001" y="1683.5082458770617"/>
+            <point key="canvasLocation" x="300" y="1967.7661169415294"/>
         </scene>
         <!--Item-->
         <scene sceneID="Xk8-nT-OPV">
