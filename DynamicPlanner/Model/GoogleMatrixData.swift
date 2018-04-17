@@ -23,6 +23,8 @@ class GoogleMatrixData {
                                 if let overview_polyline = routes["overview_polyline"] as? NSDictionary{
                                     if let points = overview_polyline["points"] as? String{
                                        path = GMSPath(fromEncodedPath:points)
+                                        print("print path here")
+                                        print(path)
                                     }
                                 }
                             }

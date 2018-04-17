@@ -10,10 +10,15 @@ import UIKit
 import MapKit
 
 protocol SearchResultDelegate: class {
-    func searchResult(destination: String?)
+    func searchResult(destination: String?, lat: String?, lon: String?)
+    
 }
 
 class SearchPopUpViewController: UIViewController {
+    
+    
+    
+  //  var completionHandler:((double, double) -> void)?
 
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
@@ -23,6 +28,8 @@ class SearchPopUpViewController: UIViewController {
     weak var delegate: SearchResultDelegate?
     
     var result: String?
+    var point_a: String?
+    var point_b: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +65,7 @@ class SearchPopUpViewController: UIViewController {
     
     func removeAnimate()
     {
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.view.alpha = 0.0;
@@ -71,7 +79,8 @@ class SearchPopUpViewController: UIViewController {
 
     @IBAction func doneBtnTapped(_ sender: Any) {
         result = searchBar.text
-        delegate?.searchResult(destination: self.result)
+        
+        delegate?.searchResult(destination: self.result, lat: self.point_a, lon: self.point_b )
         print("HERE")
         self.removeAnimate()
     }
@@ -135,11 +144,19 @@ extension SearchPopUpViewController: UITableViewDelegate {
         
         search.start { (response, error) in
             let coordinate = response?.mapItems[0].placemark.coordinate
-            print(coordinate?.latitude ?? 0.0)
-            print(coordinate?.longitude ?? 0.0)
+           // print(coordinate?.latitude ?? 0.0)
+           // print(coordinate?.longitude ?? 0.0)
+            self.point_a = String(describing: coordinate!.latitude)
+            self.point_b = String(describing: coordinate!.longitude)
+            print(self.point_a!)
+            print(self.point_b!)
             // function to call to query string.
-            
-            print(String(describing: coordinate))
+        //    let result = self.completionHandler?("FUS-ROH-DAH!!!")
+            print("This is the result son")
+            //print(result!)
+           // print("completionHandler returns... \(String(describing: result))")
+           print(String(describing: coordinate!))
+            //print(coordinate!)
         }
         
         self.result = completion.title + ", " + completion.subtitle

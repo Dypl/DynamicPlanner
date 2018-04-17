@@ -18,9 +18,15 @@ import Foundation
 class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UITextFieldDelegate, SearchResultDelegate {
     
     var weatherData: WeatherData?
+    var gdata : GoogleDistanceData?
     var lat: Double?
     var lon: Double?
     var isFetchingWeather = false
+    var start_lon: Double?
+    var start_lat: Double?
+    
+    var end_lon: Double?
+    var end_lat: Double?
 
     @IBOutlet weak var HiLoTempLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -47,6 +53,9 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     let LocationManager = LocationSingleton.shared
 
     
+    var coord_a = ""
+    var coord_b = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGestureRecognizerForImage = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
@@ -61,107 +70,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         LocationManager.startUpdatingUserLocation()
         
 
-        let a_coordinate_string = "2.915142,101.657498"
-        let b_coordinate_string = "2.909960,101.654674"
 
-                let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=\(a_coordinate_string)&destinations=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
-        
-
-//        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(a_coordinate_string)&destination=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
-        // We need to handle API KEYS: IN APP DELEGATE & WITHIN THIS ENDPOINT.
-
-        guard let url = URL(string: urlString) else {
-            print("Error: cannot create URL")
-            return
-        }
-        // TO DO: Create methods for functional decomposition:
-        //Testing stage.
-        let urlRequest = URLRequest(url: url)
-
-        // set up the session
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-
-        // make the request
-        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-
-            do {
-                guard let data = data else {
-                    throw JSONError.NoData
-                }
-                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
-                    throw JSONError.ConversionFailed
-                }
-               
-                //This will be used with the matrixapi.
-                
-//                if let array = json["routes"] as? NSArray {
-//                    print("hi")
-//                    if let routes = array[0] as? NSDictionary{
-//                        if let overview_polyline = routes["overview_polyline"] as? NSDictionary{
-//                            if let points = overview_polyline["points"] as? String{
-//                                // print(points)
-//                                // Use DispatchQueue.main for main thread for handling UI
-//                                DispatchQueue.main.async {
-//                                    // show polyline
-//                                    let path = GMSPath(fromEncodedPath:points)
-////
-////                                    self.polyline.path = path
-////                                    self.polyline.strokeWidth = 4
-////                                    self.polyline.strokeColor = UIColor.init(hue: 210, saturation: 88, brightness: 84, alpha: 1)
-////                                    print(mapView, "Mapa")
-////                                    self.polyline.map = mapView
-//                                    //This will be used later in a different view controller.
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-              
-                print(json)
-                if let array = json["rows"] as? NSArray {
-                    print("Yes we entered here")
-                    if let rows = array[0] as? NSDictionary{
-                        if let array2 = rows["elements"] as? NSArray{
-                            if let elements = array2[0] as? NSDictionary{
-                                if let duration = elements["duration"] as? NSDictionary {
-                                    if let text = duration["text"] as? String{
-                                        DispatchQueue.main.async {
-                                            self.point_a.text = text;
-                                        }
-                                    }
-                                }
-              
-                                if let duration = elements["distance"] as? NSDictionary {
-                                    if let text = duration["text"] as? String{
-                                        DispatchQueue.main.async {
-                                            self.point_b.text = text;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            } catch let error as JSONError {
-                print(error.rawValue)
-            } catch let error as NSError {
-                print(error.debugDescription)
-            }
-
-        })
-
-
-
-        task.resume()
-
-
-        
-        
-
-        
-        
-        
        
     }
     
@@ -286,21 +195,103 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
        searchPopUpVC.delegate = self
         self.addChildViewController(searchPopUpVC)
         searchPopUpVC.view.frame = self.view.frame
+//        searchPopUpVC.completionHandler = { text in// coord in
+//            // a = coord
+//            // b = coord
+//            //print("text = \(text)")
+//            print("IN COMPLETION HANDLERRRRRR")
+//            print(text)
+//
+//            return text
+//        }
         self.view.addSubview(searchPopUpVC.view)
         searchPopUpVC.didMove(toParentViewController: self)
+       
     }
     
-    func searchResult(destination: String?) {
+    func searchResult(destination: String?, lat: String?, lon: String?) {
         if isStartTextFieldTapped {
             startTextField.text = destination
+            coord_a = String("\(lat!),\(lon!)")
+            start_lat = Double(lat!)
+            start_lon = Double(lon!)
+            
+            
+            
+            
         } else {
             endTextField.text = destination
+           coord_b = String("\(lat!),\(lon!)")
+            
+            end_lat = Double(lat!)
+            end_lon = Double(lon!)
+            
+//            GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
+//                        if let error = error {
+//                            self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
+//                        } else {
+//            
+//                            self.gdata = googleData
+//                            print(self.gdata!)
+//                            print(googleData!.distance)
+//                            //print(gdata!.)
+//                            DispatchQueue.main.async() {
+//                                print("GOOGLE API MANAGER READY TO ROLL OUT")
+//                              // print(googleData!.)
+//                            }
+//                        }
+//                    }
+            print("Search fields should be populated")
+            print("A")
+            print(coord_a)
+            print("B")
+            print(coord_b)
+            
+            
         }
     }
     enum JSONError: String, Error {
         case NoData = "ERROR: no data"
         case ConversionFailed = "ERROR: conversion from JSON failed"
     }
+    @IBAction func findRoute(_ sender: Any) {
+        
+        
+                    GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
+                                if let error = error {
+                                    self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
+                                } else {
+        
+                                    self.gdata = googleData
+                                   // print(self.gdata!)
+                                    //print(googleData!.distance)
+                                    //print(gdata!.)
+                                    DispatchQueue.main.async() {
+                                      //  print("GOOGLE API MANAGER READY TO ROLL OUT")
+                                        self.point_a.text = googleData!.distance
+                                        self.point_b.text = googleData!.duration_eta
+                                      // print(googleData!.)
+                                    }
+                                }
+                    
+        
+        
+    }
+    
+}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is TrafficViewController
+        {
+            let vc = segue.destination as? TrafficViewController
+            vc?.point_a = coord_a
+            vc?.point_b = coord_b
+            vc?.start_lat = start_lat!
+            vc?.start_lon = start_lon!
+            vc?.end_lat = end_lat!
+            vc?.end_lon = end_lon!
+            
+        }
+    }
 
 }
-

@@ -10,7 +10,7 @@ import Foundation
 
 final class GoogleApiManager {
     // Can't init it is a singleton
-    private init() {}
+    init() {}
     // MARK: Shared Instance
     static let sharedInstance = GoogleApiManager()
     // MARK: Local Variable
@@ -21,20 +21,30 @@ final class GoogleApiManager {
     
    
     
-    func searchDistanceMatrixAPI(lat: Double, lon: Double,completion: @escaping (GoogleMatrixData?, Error?) -> ()) {
+    func searchDistanceMatrixAPI(lat: String, lon: String,completion: @escaping (GoogleMatrixData?, Error?) -> ()) {
         
         //    let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=\(a_coordinate_string)&destinations=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
         
-        let url = URL(string: GoogleApiManager.baseUrl + "distancematrix/json?units=imperial&origins=\(lat)&destinations=\(lon)&key=\(GoogleApiManager.apiKey)")!
-    
+        //let url = URL(string: GoogleApiManager.baseUrl + "distancematrix/json?units=imperial&origins=\(lat)&destinations=\(lon)&key=\(GoogleApiManager.apiKey)")!
+    let url = URL(string: GoogleApiManager.baseUrl + "directions/json?origin=\(lat)&destination=\(lon)&key=\(GoogleApiManager.apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
 
         
+//        let task = session.dataTask(with: request) { (data, response, error) in
+//            // This will run when the network request returns
+//            if let data = data {
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                let gData = GoogleMatrixData(dictionary: dataDictionary)
+//                completion(gData, nil)
+//            } else {
+//                completion(nil, error)
+//            }
+//        }
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            
+
             do {
                 guard let data = data else {
                     throw JSONError.NoData
@@ -50,7 +60,7 @@ final class GoogleApiManager {
             } catch let error as NSError {
                 print(error.debugDescription)
             }
-            
+
         })
         
         
@@ -59,21 +69,34 @@ final class GoogleApiManager {
         
 
     }
-    func searchDirectionsAPI(lat: Double, lon: Double,completion: @escaping (GoogleDistanceData?, Error?) -> ()) {
+    func searchDirectionsAPI(lat: String, lon: String,completion: @escaping (GoogleDistanceData?, Error?) -> ()) {
         
         //        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(a_coordinate_string)&destination=\(b_coordinate_string)&key=AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8"
         // We need to handle API KEYS: IN APP DELEGATE & WITHIN THIS ENDPOINT.
         
-        let url = URL(string: GoogleApiManager.baseUrl + "directions/json?origin=\(lat)&destination=\(lon)&key=\(GoogleApiManager.apiKey)")!
-        
+       // let url = URL(string: GoogleApiManager.baseUrl + "directions/json?origin=\(lat)&destination=\(lon)&key=\(GoogleApiManager.apiKey)")!
+         let url = URL(string: GoogleApiManager.baseUrl + "distancematrix/json?units=imperial&origins=\(lat)&destinations=\(lon)&key=\(GoogleApiManager.apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
         
+
+//        let task = session.dataTask(with: request) { (data, response, error) in
+//            // This will run when the network request returns
+//            if let data = data {
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                print(dataDictionary)
+//                let gData = GoogleDistanceData(dictionary: dataDictionary)
+//
+//                completion(gData, nil)
+//            } else {
+//                completion(nil, error)
+//            }
+//        }
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            
+
             do {
                 guard let data = data else {
                     throw JSONError.NoData
@@ -81,18 +104,18 @@ final class GoogleApiManager {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
                     throw JSONError.ConversionFailed
                 }
-                print(json)
-                let gdata = GoogleDistanceData(dictionary: json as! [String : Any])
+               // print(json)
+                let gdata = GoogleDistanceData(dictionary: json as! [String : Any] )
                 completion(gdata, nil)
-                
+
             } catch let error as JSONError {
                 print(error.rawValue)
             } catch let error as NSError {
                 print(error.debugDescription)
             }
-            
+
         })
-        
+
         
         
         task.resume()
