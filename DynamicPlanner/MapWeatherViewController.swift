@@ -27,6 +27,9 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     
     var end_lon: Double?
     var end_lat: Double?
+    
+    var start_title: String!
+    var end_title: String!
 
     @IBOutlet weak var HiLoTempLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -212,6 +215,8 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     func searchResult(destination: String?, lat: String?, lon: String?) {
         if isStartTextFieldTapped {
             startTextField.text = destination
+            
+            // To do: finx edge cases
             coord_a = String("\(lat!),\(lon!)")
             start_lat = Double(lat!)
             start_lon = Double(lon!)
@@ -221,41 +226,26 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             
         } else {
             endTextField.text = destination
+            
+            // To do: finx edge cases
            coord_b = String("\(lat!),\(lon!)")
             
             end_lat = Double(lat!)
             end_lon = Double(lon!)
             
-//            GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
-//                        if let error = error {
-//                            self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
-//                        } else {
-//            
-//                            self.gdata = googleData
-//                            print(self.gdata!)
-//                            print(googleData!.distance)
-//                            //print(gdata!.)
-//                            DispatchQueue.main.async() {
-//                                print("GOOGLE API MANAGER READY TO ROLL OUT")
-//                              // print(googleData!.)
-//                            }
-//                        }
-//                    }
-            print("Search fields should be populated")
-            print("A")
-            print(coord_a)
-            print("B")
-            print(coord_b)
-            
-            
         }
-    }
-    enum JSONError: String, Error {
-        case NoData = "ERROR: no data"
-        case ConversionFailed = "ERROR: conversion from JSON failed"
     }
     @IBAction func findRoute(_ sender: Any) {
         
+        if(coord_a == "" || coord_b == "")
+        {
+            
+            print("There is an error with retrieving route off coordinates.")
+            
+        }
+        else
+        {
+            
         
                     GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
                                 if let error = error {
@@ -277,7 +267,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         
         
     }
-    
+        }
 }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -290,6 +280,10 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             vc?.start_lon = start_lon!
             vc?.end_lat = end_lat!
             vc?.end_lon = end_lon!
+            vc?.start_title =  startTextField.text
+            vc?.end_title = endTextField.text
+            vc?.dis = self.point_a.text
+            vc?.dur = self.point_b.text
             
         }
     }

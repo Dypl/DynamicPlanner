@@ -18,7 +18,11 @@ import Foundation
 
 class TrafficViewController: UIViewController {
     
-     var polyline = GMSPolyline()
+    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var distance: UILabel!
+    var dur : String!
+    var dis : String!
+    var polyline = GMSPolyline()
     var gdata : GoogleMatrixData?
     
     @IBOutlet weak var back: UIButton!
@@ -30,24 +34,19 @@ class TrafficViewController: UIViewController {
     var end_lat : Double!
     var end_lon : Double!
     
+    
+    var start_title: String!
+    var end_title: String!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
 
-//         Do any additional setup after loading the view.
-//
-//                 Create a GMSCameraPosition that tells the map to display the
-//                 coordinate 2.909960,101.654674 at zoom level 16.
-//        let vancouver = CLLocationCoordinate2D(latitude: 49.26, longitude: -123.11)
-//        let calgary = CLLocationCoordinate2D(latitude: 51.05,longitude: -114.05)
-//        let bounds = GMSCoordinateBounds(coordinate: vancouver, coordinate: calgary)
-//        let camera = mapView.camera(for: bounds, insets: UIEdgeInsets())!
-//        mapView.camera = camera
         
         
-                let camera = GMSCameraPosition.camera(withLatitude: start_lat, longitude:start_lon, zoom: 2)
-                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+                let camera = GMSCameraPosition.camera(withLatitude: start_lat, longitude:start_lon, zoom: 10)
+                let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         
                 mapView.isMyLocationEnabled = true
                 view = mapView
@@ -55,29 +54,29 @@ class TrafficViewController: UIViewController {
                 // Creates a marker in the center of the map.
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: start_lat, longitude: start_lon)
-                //marker.title = "Cyberjaya"
-                //marker.snippet = "Malaysia"
+                marker.title = start_title!
                 marker.map = mapView
 
                 let marker2 = GMSMarker()
                 marker2.position = CLLocationCoordinate2D(latitude: end_lat, longitude: end_lon)
-               // marker2.title = "MSC"
-                //marker2.snippet = "Malaysia"
+                marker2.title = end_title!
                 marker2.map = mapView
                 // TO DO: Remove statically created co-ordinates
         
-                let location_1 = CLLocationCoordinate2D(latitude: start_lat , longitude: start_lon)
-                let location_2 = CLLocationCoordinate2D(latitude: end_lat,longitude: end_lon)
-                let bounds = GMSCoordinateBounds(coordinate: location_1, coordinate: location_2)
+                let location_1 = CLLocationCoordinate2D(latitude: start_lat! , longitude: start_lon!)
+                let location_2 = CLLocationCoordinate2D(latitude: end_lat!,longitude: end_lon!)
+        let bounds = GMSCoordinateBounds(coordinate: location_1, coordinate: location_2)
 //                let cameraz = mapView.camera(for: bounds, insets: UIEdgeInsets())!
 //                 mapView.camera = cameraz
         
                 let update = GMSCameraUpdate.fit(bounds, withPadding: 50.0)
                 mapView.moveCamera(update)
 ////
-//                mapView.animate(toLocation: CLLocationCoordinate2D(latitude: start_lat, longitude: start_lon))
+//               mapView.animate(toLocation: CLLocationCoordinate2D(latitude: start_lat, longitude: start_lon))
         
               view.addSubview(back)
+         view.addSubview(duration)
+         view.addSubview(distance)
 print("********************")
 print(point_a)
 print(point_b)
@@ -111,7 +110,8 @@ print(point_b)
 
         
         
-        
+        self.duration.text = dur
+         self.distance.text = dis
         
 
     }
