@@ -39,8 +39,16 @@ class TrafficViewController: UIViewController {
 //
 //                 Create a GMSCameraPosition that tells the map to display the
 //                 coordinate 2.909960,101.654674 at zoom level 16.
-                let camera = GMSCameraPosition.camera(withLatitude: start_lat, longitude:start_lon, zoom: 10.0)
+//        let vancouver = CLLocationCoordinate2D(latitude: 49.26, longitude: -123.11)
+//        let calgary = CLLocationCoordinate2D(latitude: 51.05,longitude: -114.05)
+//        let bounds = GMSCoordinateBounds(coordinate: vancouver, coordinate: calgary)
+//        let camera = mapView.camera(for: bounds, insets: UIEdgeInsets())!
+//        mapView.camera = camera
+        
+        
+                let camera = GMSCameraPosition.camera(withLatitude: start_lat, longitude:start_lon, zoom: 2)
                 let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        
                 mapView.isMyLocationEnabled = true
                 view = mapView
 
@@ -57,6 +65,17 @@ class TrafficViewController: UIViewController {
                 //marker2.snippet = "Malaysia"
                 marker2.map = mapView
                 // TO DO: Remove statically created co-ordinates
+        
+                let location_1 = CLLocationCoordinate2D(latitude: start_lat , longitude: start_lon)
+                let location_2 = CLLocationCoordinate2D(latitude: end_lat,longitude: end_lon)
+                let bounds = GMSCoordinateBounds(coordinate: location_1, coordinate: location_2)
+//                let cameraz = mapView.camera(for: bounds, insets: UIEdgeInsets())!
+//                 mapView.camera = cameraz
+        
+                let update = GMSCameraUpdate.fit(bounds, withPadding: 50.0)
+                mapView.moveCamera(update)
+////
+//                mapView.animate(toLocation: CLLocationCoordinate2D(latitude: start_lat, longitude: start_lon))
         
               view.addSubview(back)
 print("********************")
