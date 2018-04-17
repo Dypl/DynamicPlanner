@@ -50,6 +50,19 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (indexPath.row < toDoItems.count) {
+            let toDoItem = toDoItems[indexPath.row]
+            toDoItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+            toDoItem.deleteInBackground()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     func setUpAlert() {
         self.alert.addTextField(configurationHandler: { (textField: UITextField!) in
             textField.placeholder = "Enter title"
@@ -109,15 +122,6 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath.init(row: index, section: 0)], with: .top)
         tableView.endUpdates()
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (indexPath.row < toDoItems.count) {
-            let toDoItem = toDoItems[indexPath.row]
-            toDoItems.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .top)
-            toDoItem.deleteInBackground()
-        }
     }
     
     private func fetchToDoItems() {
