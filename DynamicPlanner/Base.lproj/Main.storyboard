@@ -170,7 +170,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkN-fH-2JX">
-                                <rect key="frame" x="195.5" y="184.5" width="38.5" height="20.5"/>
+                                <rect key="frame" x="195.5" y="184" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -182,25 +182,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Route Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-VD-QDp">
-                                <rect key="frame" x="139" y="359" width="97.5" height="21"/>
+                                <rect key="frame" x="138.5" y="359.5" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter starting point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-C8-glU">
-                                <rect key="frame" x="64" y="388" width="251" height="30"/>
+                                <rect key="frame" x="64" y="388.5" width="251" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ending point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yvp-zY-IP2">
-                                <rect key="frame" x="64" y="426" width="251" height="30"/>
+                                <rect key="frame" x="64" y="426.5" width="251" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSU-Cz-mwo">
-                                <rect key="frame" x="20" y="488" width="335" height="159"/>
+                                <rect key="frame" x="20" y="488.5" width="335" height="158.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bde-A8-q3p">
                                         <rect key="frame" x="8" y="47" width="60" height="17"/>
@@ -227,7 +227,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7B-wi-BGP">
-                                        <rect key="frame" x="152.5" y="4" width="30" height="31"/>
+                                        <rect key="frame" x="153" y="4" width="30" height="31"/>
                                         <state key="normal" title="Find"/>
                                         <connections>
                                             <action selector="findRoute:" destination="T7O-Sb-EGl" eventType="touchUpInside" id="1wr-sH-uCc"/>
@@ -254,13 +254,13 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Use current location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2c-K9-tfJ">
-                                <rect key="frame" x="126" y="464" width="123" height="16"/>
+                                <rect key="frame" x="126" y="464.5" width="123" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-Xe-Sl0" customClass="BEMCheckBox">
-                                <rect key="frame" x="99" y="464" width="19" height="16"/>
+                                <rect key="frame" x="99" y="464.5" width="19" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -289,6 +289,7 @@
                             <constraint firstItem="Wrl-fn-P0X" firstAttribute="bottom" secondItem="xSU-Cz-mwo" secondAttribute="bottom" constant="20" id="9B0-4c-PDB"/>
                             <constraint firstItem="Yvp-zY-IP2" firstAttribute="top" secondItem="IKV-C8-glU" secondAttribute="bottom" constant="8" id="HLC-df-6kJ"/>
                             <constraint firstItem="vuj-tk-tCE" firstAttribute="top" secondItem="6ID-w4-yxj" secondAttribute="bottom" constant="8" id="HU9-DI-Rec"/>
+                            <constraint firstItem="vPN-Xe-Sl0" firstAttribute="leading" secondItem="Wrl-fn-P0X" secondAttribute="leading" constant="99" id="KNY-XF-r6V"/>
                             <constraint firstItem="Wrl-fn-P0X" firstAttribute="trailing" secondItem="Yvp-zY-IP2" secondAttribute="trailing" constant="60" id="NXV-6o-6sO"/>
                             <constraint firstItem="m2c-K9-tfJ" firstAttribute="centerX" secondItem="vFI-YV-hHt" secondAttribute="centerX" id="O2J-Dw-P1a"/>
                             <constraint firstItem="Wrl-fn-P0X" firstAttribute="trailing" secondItem="xSU-Cz-mwo" secondAttribute="trailing" constant="20" id="Owk-te-bsv"/>
@@ -314,6 +315,7 @@
                             <constraint firstItem="6ID-w4-yxj" firstAttribute="top" secondItem="naw-Gz-ZwO" secondAttribute="bottom" constant="8" id="rVw-oU-cVw"/>
                             <constraint firstItem="I6r-VD-QDp" firstAttribute="centerX" secondItem="vFI-YV-hHt" secondAttribute="centerX" id="slB-nj-Ghe"/>
                             <constraint firstItem="xSU-Cz-mwo" firstAttribute="leading" secondItem="Wrl-fn-P0X" secondAttribute="leading" constant="20" id="tkK-ES-eVd"/>
+                            <constraint firstItem="vPN-Xe-Sl0" firstAttribute="top" secondItem="m2c-K9-tfJ" secondAttribute="top" id="vsZ-DI-6cz"/>
                             <constraint firstItem="F4u-U0-7fS" firstAttribute="centerX" secondItem="vFI-YV-hHt" secondAttribute="centerX" id="zZh-Cy-cVc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wrl-fn-P0X"/>
@@ -492,6 +494,7 @@
         <image name="refresh_img" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="alw-gV-z7g"/>
         <segue reference="UeY-r3-FyJ"/>
     </inferredMetricsTieBreakers>
 </document>
