@@ -20,17 +20,9 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     
     var weatherData: WeatherData?
     var gdata : GoogleDistanceData?
-    var lat: Double?
-    var lon: Double?
+    
     var isFetchingWeather = false
-    var start_lon: Double?
-    var start_lat: Double?
-    
-    var end_lon: Double?
-    var end_lat: Double?
-    
-    var start_title: String!
-    var end_title: String!
+    var isStartTextFieldTapped = false
 
     @IBOutlet weak var HiLoTempLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -41,24 +33,27 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var curDate: UILabel!
-    var polyline = GMSPolyline()
-
     @IBOutlet weak var point_a: UILabel!
     @IBOutlet weak var point_b: UILabel!
-
     @IBOutlet weak var origin: UILabel!
     @IBOutlet weak var destination: UILabel!
-
-    
     @IBOutlet weak var endTextField: UITextField!
     @IBOutlet weak var startTextField: UITextField!
-    //    @IBOutlet weak var tableView: UITableView!
-    var currentLocation: CLLocation!
-    let LocationManager = LocationSingleton.shared
-
+    
+    var lat: Double?
+    var lon: Double?
+    var start_lon: Double?
+    var start_lat: Double?
+    var end_lon: Double?
+    var end_lat: Double?
     
     var coord_a = ""
     var coord_b = ""
+    
+    var currentLocation: CLLocation!
+    let LocationManager = LocationSingleton.shared
+    
+    var polyline = GMSPolyline()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +61,6 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         let tapGestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(self.refreshTapped(sender:)))
         refreshImageView.addGestureRecognizer(tapGestureRecognizerForImage)
         refreshLabel.addGestureRecognizer(tapGestureRecognizerForLabel)
-        
         
         startTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
         endTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
@@ -164,7 +158,6 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         if !isFetchingWeather {
             resetFieldsToDefaults()
             LocationManager.startUpdatingUserLocation()
-            //fetchWeatherData()
         }
     }
     
@@ -174,42 +167,19 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         self.HiLoTempLabel.text = "-----"
         self.cityLabel.text = "-----"
     }
-   
-    // Created : json error, used in try & catch.
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return false
     }
     
-    var isStartTextFieldTapped = false
-    
     @objc func textFieldTapped(_ sender: UITextField) {
-        
         isStartTextFieldTapped = sender == startTextField
-        
-        print("in here")
         let searchPopUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchPopUpVC") as! SearchPopUpViewController
        searchPopUpVC.delegate = self
         self.addChildViewController(searchPopUpVC)
         searchPopUpVC.view.frame = self.view.frame
-//        searchPopUpVC.completionHandler = { text in// coord in
-//            // a = coord
-//            // b = coord
-//            //print("text = \(text)")
-//            print("IN COMPLETION HANDLERRRRRR")
-//            print(text)
-//
-//            return text
-//        }
         self.view.addSubview(searchPopUpVC.view)
         searchPopUpVC.didMove(toParentViewController: self)
-       
     }
     
     func searchResult(destination: String?, lat: String?, lon: String?) {
@@ -236,40 +206,24 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         }
     }
     @IBAction func findRoute(_ sender: Any) {
-        
-        if(coord_a == "" || coord_b == "")
-        {
-            
+        if(coord_a == "" || coord_b == "") {
             print("There is an error with retrieving route off coordinates.")
-            
+        } else {
+            GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
+                if let error = error {
+                    self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
+                } else {
+                    self.gdata = googleData
+                    // print(self.gdata!)
+                    //print(googleData!.distance)
+                    DispatchQueue.main.async() {
+                        self.point_a.text = googleData!.distance
+                        self.point_b.text = googleData!.duration_eta
+                    }
+                }
+            }
         }
-        else
-        {
-            
-        
-                    GoogleApiManager().searchDirectionsAPI(lat: coord_a, lon: coord_b) { (googleData: GoogleDistanceData?, error: Error?) in
-                                if let error = error {
-                                    self.displayAlert(title: "Error", errorMsg: error.localizedDescription)
-                                } else {
-        
-                                    self.gdata = googleData
-                                   // print(self.gdata!)
-                                    //print(googleData!.distance)
-                                    //print(gdata!.)
-                                    DispatchQueue.main.async() {
-                                      //  print("GOOGLE API MANAGER READY TO ROLL OUT")
-                                        self.point_a.text = googleData!.distance
-                                        self.point_b.text = googleData!.duration_eta
-                                      // print(googleData!.)
-                                    }
-                                }
-                    
-        
-        
     }
-        }
-}
-    
     
     @IBAction func didTapCheckBox(_ sender: BEMCheckBox) {
         // if checkbox is checkmarked
@@ -290,10 +244,8 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is TrafficViewController
-        {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is TrafficViewController {
             let vc = segue.destination as? TrafficViewController
             vc?.point_a = coord_a
             vc?.point_b = coord_b
@@ -305,8 +257,12 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             vc?.end_title = endTextField.text
             vc?.dis = self.point_a.text
             vc?.dur = self.point_b.text
-            
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }
