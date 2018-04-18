@@ -14,6 +14,7 @@ import SwiftyJSON
 import GoogleMaps
 import GooglePlaces
 import Foundation
+import BEMCheckBox
 
 class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UITextFieldDelegate, SearchResultDelegate {
     
@@ -69,12 +70,11 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         
         startTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
         endTextField.addTarget(self, action: #selector(self.textFieldTapped(_:)), for: UIControlEvents.touchDown)
-        LocationManager.delegate = self
-        LocationManager.startUpdatingUserLocation()
         
-
-
-       
+        if LocationManager.isLocationServicesEnabled() {
+            LocationManager.delegate = self
+            LocationManager.startUpdatingUserLocation()
+        }
     }
     
     func fetchWeatherData() {
@@ -269,6 +269,27 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     }
         }
 }
+    
+    
+    @IBAction func didTapCheckBox(_ sender: BEMCheckBox) {
+        // if checkbox is checkmarked
+        if sender.on {
+            if LocationManager.isLocationServicesEnabled() {
+                start_lat = lat!
+                start_lon = lon!
+                coord_a = String("\(lat!),\(lon!)")
+                startTextField.text = "Current Location"
+                startTextField.isUserInteractionEnabled = false
+            }
+        } else {
+            start_lat = nil
+            start_lon = nil
+            coord_a = ""
+            startTextField.text = ""
+            startTextField.isUserInteractionEnabled = true
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is TrafficViewController

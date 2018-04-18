@@ -17,6 +17,7 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - BEMCheckBox (1.4.1)
   - Bolts/Tasks (1.9.0)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
@@ -34,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - AlamofireImage
+  - BEMCheckBox
   - GoogleMaps
   - GooglePlaces
   - Parse
@@ -43,12 +45,13 @@ SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 98b27b865bc15291c12374a086f4d95ddd18243c
+PODFILE CHECKSUM: 3c47bb87cc819f5cb01d1052ecbf06bdc2f01395
 
 COCOAPODS: 1.4.0

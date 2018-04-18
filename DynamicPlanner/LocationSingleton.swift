@@ -93,4 +93,8 @@ class LocationSingleton: NSObject, CLLocationManagerDelegate {
             break
         }
     }
+    
+    func isLocationServicesEnabled() -> Bool {
+        return CLLocationManager.locationServicesEnabled()
+    }
 }
