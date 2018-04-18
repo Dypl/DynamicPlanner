@@ -15,6 +15,8 @@
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
 		5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */; };
+		9813C87D2072E84800681DB8 /* EdamamAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */; };
+		9813C87F207C0D5800681DB8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813C87E207C0D5800681DB8 /* Recipe.swift */; };
 		98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311E820476FC0008CBA7D /* AppDelegate.swift */; };
 		98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311EA20476FC0008CBA7D /* ViewController.swift */; };
 		98E311EE20476FC0008CBA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E311EC20476FC0008CBA7D /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		6B42BD1671072AAFA689C351 /* Pods-DynamicPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		939EC6AB7ECE3E7DCC1FE61C /* Pods-DynamicPlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerUITests/Pods-DynamicPlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamAPIManager.swift; sourceTree = "<group>"; };
+		9813C87E207C0D5800681DB8 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		98E311E520476FC0008CBA7D /* DynamicPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E311E820476FC0008CBA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E311EA20476FC0008CBA7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				58766BDF2072DC69006930C1 /* ToDoCell.swift */,
 				58D0D2E62072F40B00B943CA /* ToDoItem.swift */,
 				587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */,
+				9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */,
+				9813C87E207C0D5800681DB8 /* Recipe.swift */,
 			);
 			path = DynamicPlanner;
 			sourceTree = "<group>";
@@ -487,9 +493,11 @@
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
 				58766BE02072DC69006930C1 /* ToDoCell.swift in Sources */,
 				98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */,
+				9813C87D2072E84800681DB8 /* EdamamAPIManager.swift in Sources */,
 				5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */,
 				58D0D2E72072F40B00B943CA /* ToDoItem.swift in Sources */,
 				5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */,
+				9813C87F207C0D5800681DB8 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
