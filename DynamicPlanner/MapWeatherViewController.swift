@@ -228,19 +228,51 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     @IBAction func didTapCheckBox(_ sender: BEMCheckBox) {
         // if checkbox is checkmarked
         if sender.on {
-            if LocationManager.isLocationServicesEnabled() {
-                start_lat = lat!
-                start_lon = lon!
-                coord_a = String("\(lat!),\(lon!)")
-                startTextField.text = "Current Location"
-                startTextField.isUserInteractionEnabled = false
+            if self.LocationManager.isLocationServicesEnabled() {
+                if self.startTextField.text == nil || (self.startTextField.text?.isEmpty)! {
+                    self.start_lat = self.lat!
+                    self.start_lon = self.lon!
+                    self.coord_a = String("\(self.lat!),\(self.lon!)")
+                    DispatchQueue.main.async {
+                        self.startTextField.text = "Current Location"
+                        self.startTextField.isUserInteractionEnabled = false
+                    }
+                } else {
+                    let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to replace \(String(describing: self.startTextField.text!)) with your current location?", preferredStyle: UIAlertControllerStyle.alert)
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (_) in
+                        self.start_lat = self.lat!
+                        self.start_lon = self.lon!
+                        self.coord_a = String("\(self.lat!),\(self.lon!)")
+                        DispatchQueue.main.async {
+                            self.startTextField.text = "Current Location"
+                            self.startTextField.isUserInteractionEnabled = false
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (_) in
+                        DispatchQueue.main.async {
+                            sender.setOn(false, animated: true)
+                        }
+                    }))
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                print("location services not available")
+                let alert = UIAlertController(title: "Location Services", message: "Location ervices are not enabled or not allowed for this app", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_) in
+                    DispatchQueue.main.async {
+                        sender.setOn(false, animated: true)
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         } else {
-            start_lat = nil
-            start_lon = nil
-            coord_a = ""
-            startTextField.text = ""
-            startTextField.isUserInteractionEnabled = true
+            self.start_lat = nil
+            self.start_lon = nil
+            self.coord_a = ""
+            self.startTextField.text = ""
+            self.startTextField.isUserInteractionEnabled = true
         }
     }
     
