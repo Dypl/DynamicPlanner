@@ -22,6 +22,10 @@
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
 		5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */; };
+		5A7E89A72086ED8500AF9337 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */; };
+		5A7E89A92086ED8800AF9337 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */; };
+		5A7E89AB2086ED8C00AF9337 /* FullDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */; };
+		5A7E89AD2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */; };
 		98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311E820476FC0008CBA7D /* AppDelegate.swift */; };
 		98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311EA20476FC0008CBA7D /* ViewController.swift */; };
 		98E311EE20476FC0008CBA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E311EC20476FC0008CBA7D /* Main.storyboard */; };
@@ -69,6 +73,10 @@
 		5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWeatherViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3720686597009BBCDC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = ../../../DTP/DateTimePicker/Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = ../../../DTP/DateTimePicker/Source/DateTimePicker.swift; sourceTree = "<group>"; };
+		5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullDateCollectionViewCell.swift; path = ../../../DTP/DateTimePicker/Source/FullDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = ../../../DTP/DateTimePicker/Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		6B42BD1671072AAFA689C351 /* Pods-DynamicPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		939EC6AB7ECE3E7DCC1FE61C /* Pods-DynamicPlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerUITests/Pods-DynamicPlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		98E311E520476FC0008CBA7D /* DynamicPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,8 +185,12 @@
 				5A1AC9822072E20B009176D8 /* Images.xcassets */,
 				98E311F120476FC0008CBA7D /* LaunchScreen.storyboard */,
 				98E311F420476FC0008CBA7D /* Info.plist */,
+				5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */,
 				5A22F02920588DB0004A3A97 /* LoginViewController.swift */,
+				5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */,
 				5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */,
+				5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */,
+				5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */,
 				5A3BFA3720686597009BBCDC /* RecipeViewController.swift */,
 				5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */,
 			);
@@ -519,10 +531,14 @@
 			files = (
 				5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */,
 				98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */,
+				5A7E89A92086ED8800AF9337 /* DateTimePicker.swift in Sources */,
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
 				98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */,
 				5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */,
+				5A7E89AD2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift in Sources */,
 				5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */,
+				5A7E89A72086ED8500AF9337 /* DateCollectionViewCell.swift in Sources */,
+				5A7E89AB2086ED8C00AF9337 /* FullDateCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
