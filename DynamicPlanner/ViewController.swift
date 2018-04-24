@@ -146,10 +146,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTi
         let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
         let picker = DateTimePicker.show(selected: Date(), minimumDate: min, maximumDate: max)
         picker.timeInterval = DateTimePicker.MinuteInterval.default
-        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.highlightColor = UIColor(red: 12.0/255.0, green: 14.0/255.0, blue: 63.0/255.0, alpha: 1)
         picker.darkColor = UIColor.darkGray
-        picker.doneButtonTitle = "Set Alarm"
-        picker.doneBackgroundColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.doneButtonTitle = "Done"
+        picker.doneBackgroundColor = UIColor(red: 12.0/255.0, green: 14.0/255.0, blue: 63.0/255.0, alpha: 1)
         picker.locale = Locale(identifier: "en_GB")
         
         picker.todayButtonTitle = "Today"
@@ -187,7 +187,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTi
          //   content.subtitle = "Rise and Shine Son"
             content.body = self.dypl_desc.text!
             content.categoryIdentifier = "TIMER_EXPIRED"
-            content.badge = 1
+           // content.badge = 1
             
             
             
