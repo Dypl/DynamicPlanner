@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		12E641B5F6B0C48D1034DE60 /* Pods_DynamicPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */; };
+		58766BE02072DC69006930C1 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58766BDF2072DC69006930C1 /* ToDoCell.swift */; };
+		587F147E207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */; };
+		58D0D2E72072F40B00B943CA /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0D2E62072F40B00B943CA /* ToDoItem.swift */; };
 		5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22F02920588DB0004A3A97 /* LoginViewController.swift */; };
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
@@ -47,6 +50,9 @@
 		1FFA9ACC334DD71AE64DFE48 /* Pods-DynamicPlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429436E7B316B1578B6021D7 /* Pods_DynamicPlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58766BDF2072DC69006930C1 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemDetailsViewController.swift; sourceTree = "<group>"; };
+		58D0D2E62072F40B00B943CA /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		5A22F02920588DB0004A3A97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWeatherViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3720686597009BBCDC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */,
 				5A3BFA3720686597009BBCDC /* RecipeViewController.swift */,
 				5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */,
+				58766BDF2072DC69006930C1 /* ToDoCell.swift */,
+				58D0D2E62072F40B00B943CA /* ToDoItem.swift */,
+				587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */,
 				9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */,
 				9813C87E207C0D5800681DB8 /* Recipe.swift */,
 			);
@@ -480,10 +489,13 @@
 			files = (
 				5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */,
 				98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */,
+				587F147E207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift in Sources */,
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
+				58766BE02072DC69006930C1 /* ToDoCell.swift in Sources */,
 				98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */,
 				9813C87D2072E84800681DB8 /* EdamamAPIManager.swift in Sources */,
 				5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */,
+				58D0D2E72072F40B00B943CA /* ToDoItem.swift in Sources */,
 				5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */,
 				9813C87F207C0D5800681DB8 /* Recipe.swift in Sources */,
 			);
