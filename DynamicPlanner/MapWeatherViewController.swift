@@ -166,6 +166,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         self.temperatureLabel.text = "--"
         self.HiLoTempLabel.text = "-----"
         self.cityLabel.text = "-----"
+        self.weatherIconImg.image = nil
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
