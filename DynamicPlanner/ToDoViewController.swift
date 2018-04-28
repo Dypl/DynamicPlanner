@@ -25,6 +25,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.isHidden = true
+        tableView.backgroundColor = UIColor(red: 174.0/255.0, green: 176.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         setUpAlert()
         fetchToDoItems()
     }
