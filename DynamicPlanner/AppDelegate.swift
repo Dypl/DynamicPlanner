@@ -20,12 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // Override point for customization after application launch.
       
         GMSServices.provideAPIKey(valueForAPIKey(named: "GOOGLE_API_KEY"))
-//
         GMSPlacesClient.provideAPIKey(valueForAPIKey(named: "GOOGLE_API_KEY"))
-       
         
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.

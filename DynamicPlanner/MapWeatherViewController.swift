@@ -24,6 +24,10 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     var isFetchingWeather = false
     var isStartTextFieldTapped = false
 
+
+    @IBOutlet weak var bbFindAddress: UIBarButtonItem!
+    @IBOutlet weak var viewMap: UIView!
+    @IBOutlet weak var lblInfo: UILabel!
     @IBOutlet weak var HiLoTempLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var refreshLabel: UILabel!
@@ -297,5 +301,4 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
