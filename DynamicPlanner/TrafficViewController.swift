@@ -75,8 +75,8 @@ class TrafficViewController: UIViewController {
 //               mapView.animate(toLocation: CLLocationCoordinate2D(latitude: start_lat, longitude: start_lon))
         
               view.addSubview(back)
-         view.addSubview(duration)
-         view.addSubview(distance)
+       //  view.addSubview(duration)
+       //  view.addSubview(distance)
 print("********************")
 print(point_a)
 print(point_b)

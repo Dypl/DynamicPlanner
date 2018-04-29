@@ -54,7 +54,13 @@ class LocationSingleton: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if(locations.last == nil)
+        {
+            return
+        }
+        
         guard let location = locations.last else {
+           
             return
         }
         
