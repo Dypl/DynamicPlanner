@@ -7,6 +7,8 @@ target 'DynamicPlanner' do
 
   # Pods for DynamicPlanner
     pod 'Parse'
+    pod 'Alamofire'
+    pod 'AlamofireImage', '~> 3.1'
 
   target 'DynamicPlannerTests' do
     inherit! :search_paths
