@@ -9,6 +9,13 @@ target 'DynamicPlanner' do
 
   # Pods for DynamicPlanner
     pod 'Parse'
+    pod 'AlamofireImage'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'AFNetworking', '~> 3.0'
+    pod 'SwiftyJSON'
+    pod 'BEMCheckBox'
+
 
   target 'DynamicPlannerTests' do
     inherit! :search_paths

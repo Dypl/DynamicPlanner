@@ -3,7 +3,7 @@
 //  DynamicPlanner
 //
 //  Created by Jesus Perez on 3/29/18.
-//  Copyright © 2018 Carlos Huizar-Valenzuela. All rights reserved.
+//  Copyright © 2018 Jesus Perez. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +22,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Asked user for permission
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
         UNUserNotificationCenter.current().delegate = self

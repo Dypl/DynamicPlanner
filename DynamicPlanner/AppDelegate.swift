@@ -16,13 +16,13 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8")
-        GMSPlacesClient.provideAPIKey("AIzaSyBpYSil4z6B-zjaSAsXlBzBl3O9TucBoZ8")
-        
+      
+        GMSServices.provideAPIKey(valueForAPIKey(named: "GOOGLE_API_KEY"))
+        GMSPlacesClient.provideAPIKey(valueForAPIKey(named: "GOOGLE_API_KEY"))
         
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.
