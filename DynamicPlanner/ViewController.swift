@@ -9,13 +9,24 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTimePickerDelegate {
+class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, UNUserNotificationCenterDelegate, DateTimePickerDelegate {
 
+    @IBOutlet weak var setFor: UILabel!
     @IBOutlet weak var datePickerText: UITextField!
     
-    @IBOutlet weak var dypl_desc: UITextView!
-    @IBOutlet weak var dypl_title: UITextField!
+    @IBOutlet weak var showAlarm: UILabel!
     
+    @IBOutlet weak var dypl_desc: UITextView!
+    {
+        didSet {
+            dypl_desc.delegate = self
+        }
+    }
+    @IBOutlet weak var dypl_title: UITextField!{
+        didSet {
+           dypl_title.delegate = self
+        }
+    }
     let datePicker = UIDatePicker()
      var picker: DateTimePicker?
     
@@ -152,8 +163,13 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTi
             let center = UNUserNotificationCenter.current()
             center.setNotificationCategories([generalCategory, expiredCategory])
             let formatter = DateFormatter()
-            formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
+            formatter.dateFormat = "hh:mm aa MM/dd/YYYY"
            // self.title = formatter.string(from: date)
+            self.setFor.text = "Alarm Set for: "
+            self.showAlarm.text = formatter.string(from: date)
+        
+            
+           // print(dateFormatter.string(from: date!))
         }
        // picker.delegate = self
        //self.picker = picker
@@ -161,5 +177,43 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate, DateTi
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("TextField did begin editing method called")
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("TextField did end editing method called\(textField.text!)")
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("TextField should begin editing method called")
+        return true;
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        print("TextField should clear method called")
+        return true;
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("TextField should end editing method called")
+        return true;
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("While entering the characters this method gets called")
+        return true;
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("TextField should return method called")
+        textField.resignFirstResponder();
+        //self.view.endEditing(true)
+        
+        return true;
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text as NSString).rangeOfCharacter(from: CharacterSet.newlines).location == NSNotFound {
+            return true
+        }
+        dypl_desc.resignFirstResponder()
+        return false
+    }
+    
+
 }
 
