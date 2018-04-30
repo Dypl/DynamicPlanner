@@ -83,6 +83,17 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, 
         else if(response.actionIdentifier == "STOP_ACTION")
         {
             print ("STOP ALERT")
+            
+           // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+           // let abcViewController = storyboard.instantiateViewController(withIdentifier: "MWV") as! MapWeatherViewController
+           // abcViewController.title = ""
+          //  navigationController?.pushViewController(abcViewController, animated: true)
+            
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MWV") as! MapWeatherViewController
+            self.present(nextViewController, animated:true, completion:nil)
         }
         else{
             print("Error 404")

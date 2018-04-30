@@ -116,6 +116,14 @@ print(point_b)
 
     }
 
+    @IBAction func backToMap(_ sender: Any) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MWV") as! MapWeatherViewController
+        self.present(nextViewController, animated:true, completion:nil)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
