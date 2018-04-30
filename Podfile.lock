@@ -34,7 +34,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - AlamofireImage
+  - Alamofire
+  - AlamofireImage (~> 3.1)
   - BEMCheckBox
   - GoogleMaps
   - GooglePlaces
@@ -52,6 +53,6 @@ SPEC CHECKSUMS:
   Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: d4bedd5847f5de27d966c49fc8c651ad00bd9b71
+PODFILE CHECKSUM: 065f6afbd3cba4470589c41d0d8c4baa438b7102
 
 COCOAPODS: 1.4.0
