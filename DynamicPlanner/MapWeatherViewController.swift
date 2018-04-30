@@ -74,6 +74,9 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             LocationManager.delegate = self
             LocationManager.startUpdatingUserLocation()
         }
+        
+        self.refreshImageView.layer.cornerRadius = 10
+        self.refreshImageView.clipsToBounds = true
     }
     
     func fetchWeatherData() {

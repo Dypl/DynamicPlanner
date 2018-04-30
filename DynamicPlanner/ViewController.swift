@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Parse
 
 class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, UNUserNotificationCenterDelegate, DateTimePickerDelegate {
 
@@ -37,6 +38,10 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, 
         })
         UNUserNotificationCenter.current().delegate = self
           self.title = "Date Time Picker"
+        dypl_desc.layer.cornerRadius = 5
+        dypl_desc.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        dypl_desc.layer.borderWidth = 0.5
+        dypl_desc.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -223,6 +228,20 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, 
         }
         dypl_desc.resignFirstResponder()
         return false
+    }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            // PFUser.current() will now be nil
+            print("User was successfully logged out")
+            print(error?.localizedDescription as Any)
+            //self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+        }
     }
     
 

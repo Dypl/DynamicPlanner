@@ -36,12 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-        // This checks is a user is signed in already!
-//        if PFUser.current() != nil {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            // view controller currently being set in Storyboard as default will be overridden
-//            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-//        }
+         //This checks is a user is signed in already!
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // view controller currently being set in Storyboard as default will be overridden
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TableVC")
+        }
         
         return true
         
