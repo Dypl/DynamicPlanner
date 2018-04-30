@@ -159,6 +159,9 @@ class ViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, 
             let content = UNMutableNotificationContent()
             content.title = self.dypl_title.text!
             content.body = self.dypl_desc.text!
+            
+             self.dypl_desc.layer.borderWidth = 2
+            self.dypl_title.layer.borderWidth = 2
             content.categoryIdentifier = "TIMER_EXPIRED"
             
             

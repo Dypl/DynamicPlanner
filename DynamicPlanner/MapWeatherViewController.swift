@@ -24,7 +24,8 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     var isFetchingWeather = false
     var isStartTextFieldTapped = false
 
-
+    @IBOutlet weak var showMap: UILabel!
+    
     @IBOutlet weak var bbFindAddress: UIBarButtonItem!
     @IBOutlet weak var viewMap: UIView!
     @IBOutlet weak var lblInfo: UILabel!
@@ -229,6 +230,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
                     DispatchQueue.main.async() {
                         self.point_a.text = googleData!.distance
                         self.point_b.text = googleData!.duration_eta
+                        self.showMap.text = "Show Route"
                         
                        
 
