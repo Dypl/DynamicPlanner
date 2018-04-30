@@ -66,3 +66,9 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+# API Keys
+#
+# Prevent pushing API keys to Github
+
+ApiKeys.plist

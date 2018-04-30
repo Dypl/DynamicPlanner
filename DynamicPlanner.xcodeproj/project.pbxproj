@@ -8,10 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		12E641B5F6B0C48D1034DE60 /* Pods_DynamicPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */; };
+		58766BE02072DC69006930C1 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58766BDF2072DC69006930C1 /* ToDoCell.swift */; };
+		587F147E207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */; };
+		58A3728B208161090065D955 /* SearchPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3728A208161090065D955 /* SearchPopUpViewController.swift */; };
+		58A5757C207EF16B006254D4 /* LocationSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A5757B207EF16B006254D4 /* LocationSingleton.swift */; };
+		58CD4594206D64EC0066B951 /* WeatherAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */; };
+		58CD4596206DBCA00066B951 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD4595206DBCA00066B951 /* WeatherData.swift */; };
+		58D0D2E72072F40B00B943CA /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0D2E62072F40B00B943CA /* ToDoItem.swift */; };
+		58F5C746206DD45D005FFC8A /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5C745206DD45D005FFC8A /* ApiKeys.swift */; };
 		5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22F02920588DB0004A3A97 /* LoginViewController.swift */; };
 		5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */; };
 		5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA3720686597009BBCDC /* RecipeViewController.swift */; };
 		5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */; };
+		5A6C2317207F20F600DE9855 /* GoogleAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C2316207F20F600DE9855 /* GoogleAPIManager.swift */; };
+		5A6C23192080248200DE9855 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C23182080248200DE9855 /* TrafficViewController.swift */; };
+		5A6C231D2083AF6900DE9855 /* GoogleDistanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */; };
+		5A6C231F2083B4CA00DE9855 /* GoogleMatrixData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */; };
+		5A7E89A72086ED8500AF9337 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */; };
+		5A7E89A92086ED8800AF9337 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */; };
+		5A7E89AB2086ED8C00AF9337 /* FullDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */; };
+		5A7E89AD2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */; };
+		5AADAD4320954BFD0060D1E7 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AADAD4220954BFD0060D1E7 /* ApiKeys.plist */; };
 		9813C87D2072E84800681DB8 /* EdamamAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */; };
 		9813C87F207C0D5800681DB8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813C87E207C0D5800681DB8 /* Recipe.swift */; };
 		98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E311E820476FC0008CBA7D /* AppDelegate.swift */; };
@@ -47,10 +64,27 @@
 		1FFA9ACC334DD71AE64DFE48 /* Pods-DynamicPlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2EC0F92897F68216861C9B4D /* Pods_DynamicPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429436E7B316B1578B6021D7 /* Pods_DynamicPlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamicPlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58766BDF2072DC69006930C1 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemDetailsViewController.swift; sourceTree = "<group>"; };
+		58A3728A208161090065D955 /* SearchPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopUpViewController.swift; sourceTree = "<group>"; };
+		58A5757B207EF16B006254D4 /* LocationSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSingleton.swift; sourceTree = "<group>"; };
+		58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIManager.swift; sourceTree = "<group>"; };
+		58CD4595206DBCA00066B951 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		58D0D2E62072F40B00B943CA /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		58F5C745206DD45D005FFC8A /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		5A22F02920588DB0004A3A97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWeatherViewController.swift; sourceTree = "<group>"; };
 		5A3BFA3720686597009BBCDC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		5A6C2316207F20F600DE9855 /* GoogleAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPIManager.swift; sourceTree = "<group>"; };
+		5A6C23182080248200DE9855 /* TrafficViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
+		5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDistanceData.swift; sourceTree = "<group>"; };
+		5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMatrixData.swift; sourceTree = "<group>"; };
+		5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = ../../../DTP/DateTimePicker/Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = ../../../DTP/DateTimePicker/Source/DateTimePicker.swift; sourceTree = "<group>"; };
+		5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullDateCollectionViewCell.swift; path = ../../../DTP/DateTimePicker/Source/FullDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = ../../../DTP/DateTimePicker/Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		5AADAD4220954BFD0060D1E7 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
 		6B42BD1671072AAFA689C351 /* Pods-DynamicPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerTests/Pods-DynamicPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		939EC6AB7ECE3E7DCC1FE61C /* Pods-DynamicPlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicPlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicPlannerUITests/Pods-DynamicPlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamAPIManager.swift; sourceTree = "<group>"; };
@@ -101,6 +135,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58CD4592206D64BF0066B951 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				58CD4593206D64EC0066B951 /* WeatherAPIManager.swift */,
+				58F5C745206DD45D005FFC8A /* ApiKeys.swift */,
+				5A6C2316207F20F600DE9855 /* GoogleAPIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		58F5C742206DC64F005FFC8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58CD4595206DBCA00066B951 /* WeatherData.swift */,
+				5A6C231C2083AF6900DE9855 /* GoogleDistanceData.swift */,
+				5A6C231E2083B4CA00DE9855 /* GoogleMatrixData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9401C3CECBFF7183F92EF1F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +168,7 @@
 		98E311DC20476FBF008CBA7D = {
 			isa = PBXGroup;
 			children = (
+				5AADAD4220954BFD0060D1E7 /* ApiKeys.plist */,
 				98E311E720476FC0008CBA7D /* DynamicPlanner */,
 				98E311FC20476FC0008CBA7D /* DynamicPlannerTests */,
 				98E3120720476FC0008CBA7D /* DynamicPlannerUITests */,
@@ -136,16 +191,28 @@
 		98E311E720476FC0008CBA7D /* DynamicPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				58F5C742206DC64F005FFC8A /* Model */,
+				58CD4592206D64BF0066B951 /* APIManager */,
 				98E311E820476FC0008CBA7D /* AppDelegate.swift */,
 				98E311EA20476FC0008CBA7D /* ViewController.swift */,
 				98E311EC20476FC0008CBA7D /* Main.storyboard */,
 				98E311EF20476FC0008CBA7D /* Assets.xcassets */,
 				98E311F120476FC0008CBA7D /* LaunchScreen.storyboard */,
 				98E311F420476FC0008CBA7D /* Info.plist */,
+				5A7E89A62086ED8400AF9337 /* DateCollectionViewCell.swift */,
 				5A22F02920588DB0004A3A97 /* LoginViewController.swift */,
+				5A7E89AA2086ED8C00AF9337 /* FullDateCollectionViewCell.swift */,
 				5A3BFA3520686586009BBCDC /* MapWeatherViewController.swift */,
+				5A7E89AC2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift */,
+				5A7E89A82086ED8800AF9337 /* DateTimePicker.swift */,
 				5A3BFA3720686597009BBCDC /* RecipeViewController.swift */,
 				5A3BFA39206865A7009BBCDC /* ToDoViewController.swift */,
+				5A6C23182080248200DE9855 /* TrafficViewController.swift */,
+				58A5757B207EF16B006254D4 /* LocationSingleton.swift */,
+				58A3728A208161090065D955 /* SearchPopUpViewController.swift */,
+				58766BDF2072DC69006930C1 /* ToDoCell.swift */,
+				58D0D2E62072F40B00B943CA /* ToDoItem.swift */,
+				587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */,
 				9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */,
 				9813C87E207C0D5800681DB8 /* Recipe.swift */,
 			);
@@ -300,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E311F320476FC0008CBA7D /* LaunchScreen.storyboard in Resources */,
+				5AADAD4320954BFD0060D1E7 /* ApiKeys.plist in Resources */,
 				98E311F020476FC0008CBA7D /* Assets.xcassets in Resources */,
 				98E311EE20476FC0008CBA7D /* Main.storyboard in Resources */,
 			);
@@ -380,17 +448,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DynamicPlanner/Pods-DynamicPlanner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,9 +507,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DynamicPlanner/Pods-DynamicPlanner-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -482,13 +561,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6C231F2083B4CA00DE9855 /* GoogleMatrixData.swift in Sources */,
 				5A22F02A20588DB0004A3A97 /* LoginViewController.swift in Sources */,
 				98E311EB20476FC0008CBA7D /* ViewController.swift in Sources */,
+				5A7E89A92086ED8800AF9337 /* DateTimePicker.swift in Sources */,
+				5A6C231D2083AF6900DE9855 /* GoogleDistanceData.swift in Sources */,
+				5A6C23192080248200DE9855 /* TrafficViewController.swift in Sources */,
+				58F5C746206DD45D005FFC8A /* ApiKeys.swift in Sources */,
 				5A3BFA3620686586009BBCDC /* MapWeatherViewController.swift in Sources */,
+				58A5757C207EF16B006254D4 /* LocationSingleton.swift in Sources */,
+				587F147E207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift in Sources */,
+				58766BE02072DC69006930C1 /* ToDoCell.swift in Sources */,
 				98E311E920476FC0008CBA7D /* AppDelegate.swift in Sources */,
 				9813C87D2072E84800681DB8 /* EdamamAPIManager.swift in Sources */,
 				5A3BFA3A206865A7009BBCDC /* ToDoViewController.swift in Sources */,
+				5A7E89AD2086ED9100AF9337 /* StepCollectionViewFlowLayout.swift in Sources */,
 				5A3BFA3820686597009BBCDC /* RecipeViewController.swift in Sources */,
+				5A7E89A72086ED8500AF9337 /* DateCollectionViewCell.swift in Sources */,
+				5A7E89AB2086ED8C00AF9337 /* FullDateCollectionViewCell.swift in Sources */,
+				58CD4594206D64EC0066B951 /* WeatherAPIManager.swift in Sources */,
+				58CD4596206DBCA00066B951 /* WeatherData.swift in Sources */,
+				58A3728B208161090065D955 /* SearchPopUpViewController.swift in Sources */,
+				5A6C2317207F20F600DE9855 /* GoogleAPIManager.swift in Sources */,
+				58D0D2E72072F40B00B943CA /* ToDoItem.swift in Sources */,
 				9813C87F207C0D5800681DB8 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,11 +751,15 @@
 			baseConfigurationReference = 10FB74E0C7002F19242A2BD2 /* Pods-DynamicPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BTJCC5M8V4;
 				INFOPLIST_FILE = DynamicPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.DynamicPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.DynamicPlanner.1234;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -671,11 +770,15 @@
 			baseConfigurationReference = A4C9A581862A7E0543EEF5AC /* Pods-DynamicPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BTJCC5M8V4;
 				INFOPLIST_FILE = DynamicPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.DynamicPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.DynamicPlanner.1234;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
