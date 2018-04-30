@@ -13,16 +13,26 @@ import AlamofireImage
 
 class RecipeViewController: UIViewController {
 
-    @IBOutlet weak var recipeLabel: UILabel!
+   // @IBOutlet weak var recipeLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodTitle: UILabel!
     @IBOutlet weak var activityInd: UIActivityIndicatorView!
     
+    @IBOutlet weak var recipe: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var hits: [[String: Any]] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getHits()
+
+        //view.addSubview(scrollView)
+        //scrollView.alwaysBounceVertical = true
+       // scrollView.alwaysBounceHorizontal = true
+        scrollView.isScrollEnabled = true
+        scrollView.contentSize = CGSize(width: 375, height: 1500)
+        view.addSubview(scrollView)
+
     }
 
     func getHits() {
@@ -50,7 +60,7 @@ class RecipeViewController: UIViewController {
             //print("INGREDIENTS[0] = ", ingredients[0]!)
             self.foodTitle.text = title
             
-            self.recipeLabel.layer.borderWidth = 2
+            self.recipe.layer.borderWidth = 2
             self.foodTitle.layer.borderWidth = 2
             self.foodImageView.layer.borderWidth = 2 // as you wish
             self.foodImageView.af_setImage(withURL: imageUrl!)
@@ -59,12 +69,12 @@ class RecipeViewController: UIViewController {
             var i = 0
             while(ingredients.count > i)
             {
-                arr += "-" + ingredients[i]! + "\n"
+                arr += "-\t" + ingredients[i]! + "\n"
                 //print(ingredients[i])
                 i = i + 1
             }
             print("ARR + ", arr)
-            self.recipeLabel.text = arr
+            self.recipe.text = arr
             self.activityInd.stopAnimating()
         }
     }
@@ -72,5 +82,8 @@ class RecipeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
+    }
+    func CGSizeMake(_ width: CGFloat, _ height: CGFloat) -> CGSize {
+        return CGSize(width: width, height: height)
     }
 }
