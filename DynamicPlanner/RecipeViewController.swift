@@ -25,6 +25,13 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getHits()
+        recipe.layer.cornerRadius = 5
+        recipe.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        recipe.layer.borderWidth = 0.5
+        recipe.clipsToBounds = true
+        
+        
+        
 
         //view.addSubview(scrollView)
         //scrollView.alwaysBounceVertical = true
@@ -62,7 +69,10 @@ class RecipeViewController: UIViewController {
             
             self.recipe.layer.borderWidth = 2
             self.foodTitle.layer.borderWidth = 2
-            self.foodImageView.layer.borderWidth = 2 // as you wish
+            //self.foodImageView.layer.borderWidth = 2 // as you wish
+
+            self.foodImageView.layer.cornerRadius = 10
+            self.foodImageView.clipsToBounds = true
             self.foodImageView.af_setImage(withURL: imageUrl!)
             
             var arr = ""

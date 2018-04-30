@@ -211,8 +211,8 @@
 				58A5757B207EF16B006254D4 /* LocationSingleton.swift */,
 				58A3728A208161090065D955 /* SearchPopUpViewController.swift */,
 				58766BDF2072DC69006930C1 /* ToDoCell.swift */,
-				58D0D2E62072F40B00B943CA /* ToDoItem.swift */,
 				587F147D207D9C1B00499AC2 /* ToDoItemDetailsViewController.swift */,
+				58D0D2E62072F40B00B943CA /* ToDoItem.swift */,
 				9813C87C2072E84800681DB8 /* EdamamAPIManager.swift */,
 				9813C87E207C0D5800681DB8 /* Recipe.swift */,
 			);

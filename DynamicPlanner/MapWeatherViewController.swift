@@ -24,7 +24,8 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     var isFetchingWeather = false
     var isStartTextFieldTapped = false
 
-
+    @IBOutlet weak var showMap: UILabel!
+    
     @IBOutlet weak var bbFindAddress: UIBarButtonItem!
     @IBOutlet weak var viewMap: UIView!
     @IBOutlet weak var lblInfo: UILabel!
@@ -43,6 +44,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
     @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var endTextField: UITextField!
     @IBOutlet weak var startTextField: UITextField!
+    @IBOutlet weak var findButton: UIButton!
     
     var lat: Double?
     var lon: Double?
@@ -73,6 +75,9 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             LocationManager.delegate = self
             LocationManager.startUpdatingUserLocation()
         }
+        
+        self.refreshImageView.layer.cornerRadius = 10
+        self.refreshImageView.clipsToBounds = true
     }
     
     func fetchWeatherData() {
@@ -200,6 +205,7 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
             
             
         } else {
+            // self.findButton.backgroundColor = UIColor.white
             endTextField.text = destination
             
             // To do: finx edge cases
@@ -224,6 +230,11 @@ class MapWeatherViewController: UIViewController, LocationUpdateDelegate, UIText
                     DispatchQueue.main.async() {
                         self.point_a.text = googleData!.distance
                         self.point_b.text = googleData!.duration_eta
+                        self.showMap.text = "Show Route"
+                        
+                       
+
+                        
                     }
                 }
             }
